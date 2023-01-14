@@ -6,7 +6,9 @@ class PlainCommentParseException(Exception):
         self.src_line = comment
 
 class PlainComment:
-    def __init__(self):
+    def __init__(self, scale, todo_suffix):
+        self.scale = scale
+        self.todo_suffix = todo_suffix
         self.description = ''
         self.time = None
         self.completeness = 0
@@ -20,18 +22,21 @@ class PlainComment:
         self.src_line = src_line
         self.src_line_num = src_line['num']
 
-        r = re.compile('.*TODO:\s{1,}PL:(.*\s)(\d{1,}(\.\d{1,})?/\d{1,3}/\d{1,})(\s|$).*')
+        r = re.compile('.*TODO:\s{1,}%s:(.*\s)(\d{1,}(\.\d{1,})?/\d{1,3}/\d{1,})(\s|$).*' % self.todo_suffix)
         match = r.match(src_line['line'])
-        
+
         if match:
             self.description = match.group(1).strip()
 
             params = match.group(2).split('/')
-            self.time = float(params[0])
+            self.time = float(params[0]) * self.scale
             self.completeness = int(params[1])
             self.order = int(params[2])
         else:
-            raise PlainCommentParseException('Wrong format. Expected format: "TODO: PL: comment description 1.5/10/50"', self)
+            error = f'Wrong format. Expected format: "TODO: {self.todo_suffix}: comment description 1.5/10/50"\n'
+            error += src_line['line']
+            error += f"\n{file_name}:{src_line['num']}"
+            raise PlainCommentParseException(error, self)
 
     def print(self):
         print(self.inspect())
@@ -41,4 +46,6 @@ class PlainComment:
 
     def time_complete(self):
         return self.time * self.completeness / 100
-    
+
+    def time_remaining(self):
+        return self.time - self.time_complete(self)

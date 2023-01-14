@@ -1,10 +1,10 @@
 import unittest
-from plain_comment import PlainComment
-from plain_comment import PlainCommentParseException
+from srclib.plain_comment import PlainComment
+from srclib.plain_comment import PlainCommentParseException
 
 class PlainCommentTest(unittest.TestCase):
     def test_parse_01(self):
-        comment = PlainComment()
+        comment = PlainComment(1, 'PL')
         comment.parse('file.name', {'num': 2, 'line': '<!-- TODO: PL: descr 123 1.5/2/3 -->'})
 
         self.assertEqual(comment.file_name, 'file.name')
@@ -14,7 +14,7 @@ class PlainCommentTest(unittest.TestCase):
         self.assertEqual(comment.order, 3)
 
     def test_parse_02(self):
-        comment = PlainComment()
+        comment = PlainComment(1, 'PL')
         src_line = {'num': 2, 'line': 'TODO: PL: descr 123 '}
 
         self.assertRaises(PlainCommentParseException, comment.parse, 'file.name', src_line)

@@ -1,6 +1,7 @@
 class PlainScanner:
-    def __init__(self):
+    def __init__(self, todo_suffix):
         self.comments = []
+        self.todo_suffix = todo_suffix
 
     def scan_file(self, file_name):
         self.comments = []
@@ -10,6 +11,6 @@ class PlainScanner:
 
         for line in f:
             line_num += 1
-            if 'TODO: PL:' in line: self.comments.append({'num': line_num, 'line': line})
+            if f'TODO: {self.todo_suffix}:' in line: self.comments.append({'num': line_num, 'line': line})
 
         f.close()
