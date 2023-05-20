@@ -1,0 +1,46 @@
+TODO: PL: Длинный, без ошибок, разные состояния готовности
+ID: MAIN
+DEP: C1
+
+TODO: PL: Первый уровень. В документе заголовок H2
+ID: C1
+DEP: C2
+TIME: 4
+COMPL: 0
+
+TODO: PL: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+ID: C2
+DEP: C3
+TIME: 4
+COMPL: 0
+DEV: John Doe
+
+TODO: PL: Нода в процессе, жирная рамка
+ID: C3
+DEP: C4
+TIME: 4
+COMPL: 50
+BLOCKER: Bloked!
+
+TODO: PL: Немного <b>тэгов</b>. Не должно ломаться
+ID: C4
+DEP: C5
+TIME: 4
+COMPL: 50
+
+TODO: PL: Почти сделано, приглушенная нода
+ID: C5
+DEP: C6
+TIME: 4
+COMPL: 90
+
+TODO: PL: Сделано, сильно приглушенная нода, в документе перечеркнуто
+ID: C6
+DEP: C7
+TIME: 4
+COMPL: 100
+
+TODO: PL: Нода на уровне 7, в документе H6
+ID: C7
+TIME: 4
+COMPL: 100

@@ -1,0 +1,16 @@
+Два узла с ID MAIN
+
+
+TODO: PL: Первый узел MAIN
+ID: MAIN
+DEP: C1
+
+
+TODO: PL: Второй узел MAIN
+ID: MAIN
+DEP: C1
+DEP: FOO
+
+TODO: PL: Foo
+ID: FOO
+DEP: C1

@@ -1,0 +1,18 @@
+
+TODO: ERR1: descr1
+ID: id1
+DEP: id2
+TIME: 1/2/4
+COMPL: 0
+
+TODO: ERR1: descr2
+ID: id2
+DEP: id3
+TIME: 1.5/2/4.5
+COMPL: 50
+
+TODO: ERR1: descr3
+ID: id3
+DEP: id1
+TIME: 1.5
+COMPL: 100

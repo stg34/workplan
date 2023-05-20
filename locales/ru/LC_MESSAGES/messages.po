@@ -1,0 +1,279 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-11 19:55+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: srclib/presenter/task_presenter.py:21 srclib/presenter/task_presenter.py:21
+msgid "TOTAL"
+msgstr "Всего"
+
+#: srclib/presenter/comment_presenter.py:61
+#: srclib/presenter/comment_presenter.py:61
+msgid "BLOCKED"
+msgstr "Заблокировано"
+
+#: srclib/presenter/estimate_presenter.py:12
+#: srclib/presenter/estimate_presenter.py:12
+msgid "WRONG TIME FORMAT"
+msgstr "Неверный формат времени"
+
+#: srclib/presenter/estimate_presenter.py:13
+#: srclib/presenter/estimate_presenter.py:13
+msgid "TIME IS NOT DEFINED"
+msgstr "Время не задано"
+
+#: srclib/presenter/estimate_presenter.py:14
+#: srclib/presenter/estimate_presenter.py:14
+msgid "TIME IS ALREADY DEFINED"
+msgstr "Время уже задано"
+
+#: srclib/presenter/estimate_presenter.py:16
+#: srclib/presenter/estimate_presenter.py:16
+msgid "OPTIMISTIC TIME > MOST LIKELY TIME"
+msgstr "Оптимистичное время > Наиболее вероятное время"
+
+#: srclib/presenter/estimate_presenter.py:17
+#: srclib/presenter/estimate_presenter.py:17
+msgid "MOST LIKELY TIME > PESSIMISTIC TIME"
+msgstr "Наиболее вероятное время > Пессимистическое время"
+
+#: srclib/presenter/comment_presenter.py:14
+#: srclib/presenter/comment_presenter.py:14
+msgid "ID IS ALREADY DEFINED"
+msgstr "ID уже определён"
+
+#: srclib/presenter/comment_presenter.py:15
+#: srclib/presenter/comment_presenter.py:15
+msgid "DEVELOPER IS ALREADY DEFINED"
+msgstr "Разработчик уже определён"
+
+#: srclib/presenter/comment_presenter.py:16
+#: srclib/presenter/comment_presenter.py:16
+msgid "BLOCKER ATTRIBUTE IS ALREADY DEFINED"
+msgstr "Атрибут-блокировщик уже определён"
+
+#: srclib/presenter/comment_presenter.py:17
+#: srclib/presenter/comment_presenter.py:17
+msgid "HEADER IS NOT DEFINED"
+msgstr "Заголовок не определён"
+
+#: srclib/presenter/comment_presenter.py:18
+#: srclib/presenter/comment_presenter.py:18
+msgid "HEADER IS ALREADY DEFINED"
+msgstr "Заголовок уже определён"
+
+#: srclib/presenter/comment_presenter.py:19
+#: srclib/presenter/comment_presenter.py:19
+#, python-brace-format
+msgid "COMMENT REFERENCES THE MAIN COMMENT (COMMENT WITH ID '{id}')"
+msgstr "Комментарий ссылается на главный комментарий (комментарий с ID '{id}')"
+
+#: srclib/presenter/comment_presenter.py:20
+#: srclib/presenter/comment_presenter.py:20
+msgid "EMPTY DEPENDENCY"
+msgstr "Пустая зависимость"
+
+#: srclib/presenter/comment_presenter.py:89
+#: srclib/presenter/comment_presenter.py:89
+#, python-brace-format
+msgid "NOT UNIQ ID '{id}'"
+msgstr "ID не уникальный '{id}'"
+
+#: srclib/presenter/graph_presenter.py:83
+#: srclib/presenter/graph_presenter.py:83
+#, python-brace-format
+msgid "MAIN COMMENT IS NOT DEFINED (COMMENT WITH ID '{id}')"
+msgstr "Главный комментарий не найден (комментарий с ID '{id}')"
+
+#: srclib/presenter/scanner_presenter.py:18
+#: srclib/presenter/scanner_presenter.py:18
+#, python-brace-format
+msgid "SCAN FILE ERROR: {file_name} {error}"
+msgstr "Ошибка сканирования файла: {file_name} {error}"
+
+#: srclib/presenter/prerequisites_checker_presenter.py:19
+#: srclib/presenter/prerequisites_checker_presenter.py:19
+#, python-brace-format
+msgid "'{path}' IS NOT DIRECTORY"
+msgstr "'{path}' не является директорией"
+
+#: srclib/presenter/prerequisites_checker_presenter.py:21
+#: srclib/presenter/prerequisites_checker_presenter.py:21
+msgid "GIT NOT FOUND"
+msgstr "git не найден"
+
+#: srclib/presenter/prerequisites_checker_presenter.py:23
+#: srclib/presenter/prerequisites_checker_presenter.py:23
+msgid "DOT NOT FOUND"
+msgstr "dot не найден"
+
+#: srclib/presenter/scanner_presenter.py:32
+#: srclib/presenter/scanner_presenter.py:32
+#, python-brace-format
+msgid "HINT SCAN ERROR {ext}"
+msgstr "Совет: добавьте аргумент коммандной строки: --exclude-extensions={ext}"
+
+#: srclib/presenter/graph_presenter.py:66 srclib/presenter/edge_presenter.py:16
+#: srclib/presenter/graph_presenter.py:66 srclib/presenter/edge_presenter.py:16
+msgid "LOOP"
+msgstr "Цикл"
+
+#: srclib/presenter/file_list_presenter.py:17
+#: srclib/presenter/file_list_presenter.py:17
+#, python-brace-format
+msgid "EXECUTE GIT ERROR {command} {error}"
+msgstr "Ошибка выполнения git {command} {error}"
+
+#: srclib/view/console/purgen.py:33 srclib/view/console/purgen.py:33
+#, python-brace-format
+msgid "PATCH FILE: {file}"
+msgstr "Патч: {file} "
+
+#: srclib/view/console/plain_plan.py:36 srclib/view/console/graph_plan.py:40
+#: srclib/view/console/plain_plan.py:36 srclib/view/console/graph_plan.py:40
+#, python-brace-format
+msgid "MARKDOWN FILE: {file}"
+msgstr "План: {file}"
+
+#: srclib/view/console/graph_plan.py:37 srclib/view/console/graph_plan.py:37
+#, python-brace-format
+msgid "GRAPH FILE: {file}"
+msgstr "Диаграмма: {file}"
+
+#: srclib/presenter/task_presenter.py:26 srclib/presenter/task_presenter.py:26
+msgid "UNTITLED"
+msgstr "Без названия"
+
+#: srclib/presenter/task_presenter.py:37 srclib/presenter/task_presenter.py:37
+msgid "WORK_HOURS"
+msgstr "Рабочие часы"
+
+#: srclib/presenter/estimate_presenter.py:15
+#: srclib/presenter/estimate_presenter.py:15
+msgid "TIME <= 0"
+msgstr "Время <= 0"
+
+#: srclib/presenter/estimate_presenter.py:26
+#: srclib/presenter/estimate_presenter.py:26
+#, python-brace-format
+msgid "{time} H. / {days} D."
+msgstr "{time} ч. / {days} д."
+
+#: srclib/presenter/estimate_presenter.py:28
+#: srclib/presenter/estimate_presenter.py:28
+#, python-brace-format
+msgid "{time} H."
+msgstr "{time} ч."
+
+#: srclib/presenter/estimate_presenter.py:34
+#: srclib/presenter/estimate_presenter.py:34
+msgid "TIME"
+msgstr "Время"
+
+#: srclib/presenter/estimate_presenter.py:59
+#: srclib/presenter/estimate_presenter.py:59
+msgid "REMAINING TIME"
+msgstr "Оставшееся время"
+
+#: srclib/presenter/progress_presenter.py:13
+#: srclib/presenter/progress_presenter.py:13
+msgid "PROGRESS IS NOT DEFINED"
+msgstr "Прогресс не определён"
+
+#: srclib/presenter/progress_presenter.py:14
+#: srclib/presenter/progress_presenter.py:14
+msgid "PROGRESS IS ALREADY DEFINED"
+msgstr "Прогресс уже определён"
+
+#: srclib/presenter/progress_presenter.py:15
+#: srclib/presenter/progress_presenter.py:15
+msgid "WRONG PROGRESS FORMAT"
+msgstr "Неправильный формат прогресса"
+
+#: srclib/presenter/progress_presenter.py:16
+#: srclib/presenter/progress_presenter.py:16
+msgid "PROGRESS < 0"
+msgstr "Прогресс < 0"
+
+#: srclib/presenter/progress_presenter.py:17
+#: srclib/presenter/progress_presenter.py:17
+msgid "PROGRESS > 100"
+msgstr "Прогресс > 100"
+
+#: srclib/presenter/progress_presenter.py:26
+#: srclib/presenter/progress_presenter.py:26
+msgid "PROGRESS"
+msgstr "Прогресс"
+
+#: srclib/presenter/graph_presenter.py:50
+#: srclib/presenter/graph_presenter.py:50
+msgid "NO COMMENTS"
+msgstr "Нет комментариев"
+
+#: srclib/presenter/graph_presenter.py:54
+#: srclib/presenter/graph_presenter.py:54
+msgid "COMMENTS WITH ERRORS"
+msgstr "Комментарии с ошибками"
+
+#: srclib/presenter/graph_presenter.py:58
+#: srclib/presenter/graph_presenter.py:58
+#, python-brace-format
+msgid "MAIN COMMENT IS NOT DEFINED (COMMENT WITH ID \"{id}\")"
+msgstr "Главный комментарий не определён (комментарий с ID \"{id}\")"
+
+#: srclib/presenter/graph_presenter.py:62
+#: srclib/presenter/graph_presenter.py:62
+msgid "LOOPS"
+msgstr "Циклы"
+
+#: srclib/presenter/comment_presenter.py:13
+#: srclib/presenter/comment_presenter.py:13
+msgid "ID IS NOT DEFINED"
+msgstr "ID не определён"
+
+#: srclib/presenter/comment_presenter.py:21
+#: srclib/presenter/comment_presenter.py:21
+msgid "ORDER IS NOT DEFINED"
+msgstr "Порядок не определён"
+
+#: srclib/presenter/comment_presenter.py:22
+#: srclib/presenter/comment_presenter.py:92
+#: srclib/presenter/comment_presenter.py:22
+#: srclib/presenter/comment_presenter.py:92
+msgid "ORPHAN"
+msgstr "Сомментарий без родителя"
+
+#: srclib/presenter/comment_presenter.py:33
+#: srclib/presenter/comment_presenter.py:33
+msgid "FILE"
+msgstr "Файл"
+
+#: srclib/presenter/comment_presenter.py:54
+#: srclib/presenter/comment_presenter.py:54
+msgid "DEVELOPER"
+msgstr "Разработчик"
+
+#: srclib/presenter/comment_presenter.py:68
+#: srclib/presenter/comment_presenter.py:68
+msgid "BLOCKER"
+msgstr "Блокировщик"
+
+#: srclib/presenter/comment_presenter.py:96
+#: srclib/presenter/comment_presenter.py:96
+#, python-brace-format
+msgid "UNKNOWN DEPENDENCY '{dep}'"
+msgstr "Неизвестная зависимость '{dep}'"

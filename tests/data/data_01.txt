@@ -1,11 +1,13 @@
-  # %%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  # %% I id
-  # %% D dep1
-  # %% D dep2
-  # %% H Header
-  # %% Description 1
-  # %% Description 2
-  # %% T 1|2|3
-  # %% C 5
-  # %% O 1
-  # %%-----------------------------------------------------------
+<!-- TODO: PL: descr0 -->
+
+# TODO: PL: descr1
+# ID: id1
+# TIME: 1/2/4
+# COMPL: 0
+# BLOCKER: Blocker
+/* TODO: PL: descr2     */
+/* ID: id2              */
+/* DEP: id1             */
+/* TIME: 1.5/2/4.5      */
+/* COMPL: 50            */
+/* DEV: Developer name  */

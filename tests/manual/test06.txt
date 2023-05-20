@@ -1,0 +1,13 @@
+TODO: PL: MAIN
+ID: MAIN
+DEP: C1
+
+TODO: PL: Второй узел MAIN
+ID: C1
+TIME: 1
+COMPL: 0
+
+TODO: PL: Foo
+ID: C1
+TIME: 2
+COMPL: 0

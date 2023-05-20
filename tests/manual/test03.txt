@@ -1,0 +1,49 @@
+TODO: PL: Циклы
+ID: MAIN
+DEP: C1
+DEP: C7
+
+TODO: PL: Первый уровень. В документе заголовок H2
+ID: C1
+DEP: C2
+TIME: 4
+COMPL: 0
+
+TODO: PL: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+ID: C2
+DEP: C3
+DEP: C4
+TIME: 4
+COMPL: 0
+
+TODO: PL: Нода в процессе, жирная рамка
+ID: C3
+DEP: C1
+TIME: 4.3
+COMPL: 50
+
+TODO: PL: Немного <b>тэгов</b>. Не должно ломаться
+ID: C4
+DEP: C5
+TIME: 4
+COMPL: A
+
+TODO: PL: Почти сделано, приглушенная нода
+ID: C5
+DEP: C2
+DEP: C6
+TIME: 4
+COMPL: 90
+
+TODO: PL: Сделано, сильно приглушенная нода, в документе перечеркнуто
+ID: C6
+DEP: C6
+TIME: 4
+COMPL: 100
+
+
+TODO: PL: Ссылка на MIAN
+ID: C7
+DEP: MAIN
+TIME: 4
+COMPL: 0

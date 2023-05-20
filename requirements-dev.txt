@@ -1,0 +1,11 @@
+setuptools
+flake8-adjustable-complexity
+flake8-comprehensions
+flake8-use-pathlib
+flake8-coding
+coverage
+
+# markdown
+# markdown2
+pycmarkgfm  # Lightweight Python bindings to GitHub Flavored Markdown (GFM) library, cmark-gfm, with enhanced support for task lists.
+parsel

@@ -1,0 +1,52 @@
+Разные ошибки
+
+TODO: PL: Нода без родителя, определена раньше MAIN
+ID: O0
+DEP: O1-1
+TIME: 4/2
+COMPL: 90
+
+TODO: PL: Дитя сироты
+ID: O1-1
+DEP: FOO
+TIME: 4/3/2
+COMPL: 50
+
+TODO: PL: разные ошибки, битые ссылки, узлы без родителя
+ID: MAIN
+DEP: C1
+
+TODO: PL: Первый уровень. В документе заголовок H2
+ID: C1
+DEP: C2
+
+TODO: PL: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+ID: C2
+TIME: A
+COMPL: 0
+
+TODO: PL: Еще дитя сироты
+ID: C3
+DEP: C4
+DEP: C
+TIME: -5
+COMPL: -10
+
+TODO: PL: Нода без родителя, определена позже MAIN
+ID: C5
+DEP: C4
+DEP: C3
+DEV: John Doe
+DEV: John Doe
+TIME: 4/2
+COMPL: 90
+
+TODO: PL: Нода без ID 1
+DEV: John Doe
+TIME: 4
+COMPL: 10
+
+TODO: PL: Нода без ID 2
+DEV: John Doe
+TIME: 4
+COMPL: 10
