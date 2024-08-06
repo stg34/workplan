@@ -17,32 +17,89 @@ class BaseArguments():
     def arg_defs(self):
         return {
             'base_branch': {
-                'config': {'method': 'get', 'params': {'fallback': 'master'}},
-                'args': {'names': ['-b', '--base-branch'], 'other': {}}
-            },
-            'out_dir': {
-                'config': {'method': 'get', 'params': {'fallback': './'}},
-                'args': {'names': ['-d', '--out-dir'], 'other': {}}
-            },
-            'git_binary_path': {
-                'config': {'method': 'get', 'params': {'fallback': 'git'}},
-                'args': {'names': ['--git-binary-path'], 'other': {}}
-            },
-            'verbose': {
-                'config': {'method': 'getboolean', 'params': {'fallback': False}},
-                'args': {'names': ['-v', '--verbose'], 'other': {'action': 'store_true'}}
-            },
-            'exclude_extensions': {
-                'config': {'method': 'get', 'params': {'fallback': ''}},
-                'args': {'names': ['--exclude-extensions'], 'other': {}}
+                'config': {
+                    'method': 'get',
+                    'params': {'fallback': 'master'}
+                },
+                'args': {
+                    'names': ['-b', '--base-branch'],
+                    'other': {
+                        'help': 'The base git branch (usually master or main) against which the modified files are looked for. By default master'
+                    }
+                }
             },
             'todo_suffix': {
-                'config': {'method': 'get', 'params': {'fallback': 'PL'}},
-                'args': {'names': ['-f', '--todo-suffix'], 'other': {}}
+                'config': {
+                    'method': 'get',
+                    'params': {'fallback': 'PL'}
+                },
+                'args': {
+                    'names': ['-f', '--todo-suffix'],
+                    'other': {
+                        'help': 'Suffix in the TODO comment: # TODO: SUFFIX: Default is PL'
+                    }
+                }
+            },
+            'out_dir': {
+                'config': {
+                    'method': 'get',
+                    'params': {'fallback': './'}
+                },
+                'args': {
+                    'names': ['-d', '--out-dir'],
+                    'other': {
+                        'help': 'Directory where files will be written. Default is current dir'
+                    }
+                }
+            },
+            'verbose': {
+                'config': {
+                    'method': 'getboolean',
+                    'params': {'fallback': False}
+                },
+                'args': {
+                    'names': ['-v', '--verbose'],
+                    'other': {
+                        'action': 'store_true',
+                        'help': 'Verbose output. Useful for troubleshooting'
+                    }
+                }
+            },
+            'git_binary_path': {
+                'config': {
+                    'method': 'get',
+                    'params': {'fallback': 'git'}
+                },
+                'args': {
+                    'names': ['--git-binary-path'],
+                    'other': {
+                        'help': 'git binary path. Default is git'
+                    }
+                }
+            },
+            'exclude_extensions': {
+                'config': {
+                    'method': 'get',
+                    'params': {'fallback': ''}
+                },
+                'args': {
+                    'names': ['--exclude-extensions'],
+                    'other': {
+                        'help': 'Exclude files with the specified extension from the search. For example: --exclude-extensions=png,sql'
+                    }
+                }
             },
             'src': {
-                'config': {'method': 'get', 'params': {'fallback': None}},
-                'args': {'names': ['--src'], 'other': {}}
+                'config': {
+                    'method': 'get',
+                    'params': {'fallback': None}
+                },
+                'args': {
+                    'names': ['--src'],
+                    'other': {
+                        'help': 'TODO'
+                    }
+                }
             },
         }
 
