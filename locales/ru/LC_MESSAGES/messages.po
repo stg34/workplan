@@ -255,7 +255,7 @@ msgstr "Порядок не определён"
 #: srclib/presenter/comment_presenter.py:22
 #: srclib/presenter/comment_presenter.py:92
 msgid "ORPHAN"
-msgstr "Сомментарий без родителя"
+msgstr "Комментарий без родителя"
 
 #: srclib/presenter/comment_presenter.py:33
 #: srclib/presenter/comment_presenter.py:33
