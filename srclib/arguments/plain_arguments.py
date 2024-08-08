@@ -8,7 +8,18 @@ class PlainArguments(PlanArguments):
     @property
     def arg_defs(self):
         args = {
-            # TODO: title
+            'title': {
+                'config': {
+                    'method': 'get',
+                    'params': {'fallback': None}
+                },
+                'args': {
+                    'names': ['-t', '--title'],
+                    'other': {
+                        'help': 'Document title. Default is branch name'
+                    }
+                }
+            }
         }
 
         return super().arg_defs | args

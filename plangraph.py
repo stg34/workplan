@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 import sys
 from srclib.app.graph_plan import AppPlanGraph
 

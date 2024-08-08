@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 import sys
 from srclib.app.plain_plan import AppPlanPlain
 
