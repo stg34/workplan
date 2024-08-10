@@ -42,16 +42,19 @@ class AppPlanPlain(AppBasePlain):
             comment = Comment.parse(src_comment, self.args.scale, self.args.work_hours)
             self.comments.append(comment)
 
-    def build_task(self):
-        # ordered_comments = self.comments
-        ordered_comments = sorted(self.comments, key=lambda c: c.order)
+    def document_title(self):
+        if self.args.title:
+            return self.args.title
 
+        return branch_name()
+
+    def build_main_comment(self, ordered_comments):
         src_comment = {
             'src': [{'num': 1, 'line': 'TODO: PL: Stub 1/1/1\n'}],
             'file_name': 'stub',
             'line_num': 1,
-            'id': ['MAIN'],
-            'header': [branch_name()],
+            'id': [Comment.ID_MAIN],
+            'header': [self.document_title()],
             'dependencies': [d.id for d in ordered_comments],
             'estimate': ['1'],
             'progress': ['1'],
@@ -60,23 +63,11 @@ class AppPlanPlain(AppBasePlain):
             'order': 0,
         }
 
-        # {
-        #     'src': [{'num': line_num, 'line': src_line}],
-        #     'file_name': file_name,
-        #     'line_num': line_num,
-        #     'id': [f'{file_name}:{line_num}'],
-        #     'header': [],
-        #     'dependencies': [],
-        #     'estimate': ['1'],
-        #     'progress': ['1'],
-        #     'developer_name': [],
-        #     'blocker': [],
-        #     'order': 0,
-        # }
+        return Comment.parse(src_comment, self.args.scale, self.args.work_hours)
 
-        main_comment = Comment.parse(src_comment, self.args.scale, self.args.work_hours)
-        main_comment.id = Comment.ID_MAIN
-        self.comments.append(main_comment)
+    def build_task(self):
+        ordered_comments = sorted(self.comments, key=lambda c: c.order)
+        self.comments.append(self.build_main_comment(ordered_comments))
         self.task.build(self.comments)
         view = ViewConsoleTask(self.task)
         view.print_errors()
@@ -100,6 +91,6 @@ class AppPlanPlain(AppBasePlain):
             return AppPlanPlain.FAIL
 
         finally:
-            self.view.print_summary()
+            self.view.print_summary(supress_error_no_main_comment=True)
 
         return AppPlanPlain.SUCCESS
