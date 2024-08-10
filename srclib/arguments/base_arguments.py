@@ -97,7 +97,7 @@ class BaseArguments():
                 'args': {
                     'names': ['--src'],
                     'other': {
-                        'help': 'TODO'
+                        'help': 'The name of the file with comments. Used for testing and debugging'
                     }
                 }
             },
