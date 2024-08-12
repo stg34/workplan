@@ -15,7 +15,7 @@ from srclib.model.task import Task
 
 class AppPlanGraph(AppBasePlain):
     def __init__(self, sys_args):
-        arguments = GraphArguments(sys_args, '.plangraph.conf')
+        arguments = GraphArguments(sys_args, '.plan.conf')
         prerequisites_checker = PrerequisitesChecker(arguments.out_dir, arguments.git_binary_path, arguments.dot_binary_path)
         file_list = FileList(arguments.base_branch, arguments.verbose)
         scanner = GraphScanner(arguments.todo_suffix)
@@ -46,10 +46,10 @@ class AppPlanGraph(AppBasePlain):
 
     def build_dot(self):
         self.dot_builder = ViewDotBuilder(self.task,
-                                      self.args.reverse,
-                                      self.args.dot_color_scheme,
-                                      self.args.graph_dir,
-                                      self.args.verbose)
+                                          self.args.reverse,
+                                          self.args.dot_color_scheme,
+                                          self.args.graph_dir,
+                                          self.args.verbose)
 
         self.dot_builder.build()
         out_graph_file = self.dot_builder.write(self.args.out_graph_path)

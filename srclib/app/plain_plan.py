@@ -16,7 +16,7 @@ from srclib.model.task import Task
 
 class AppPlanPlain(AppBasePlain):
     def __init__(self, sys_args):
-        arguments = PlainArguments(sys_args, '.planplain.conf')
+        arguments = PlainArguments(sys_args, '.plan.conf')
         prerequisites_checker = PrerequisitesChecker(arguments.out_dir, arguments.git_binary_path, None)
         file_list = FileList(arguments.base_branch, arguments.verbose)
         scanner = PlainScanner(arguments.todo_suffix)
