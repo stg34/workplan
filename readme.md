@@ -56,7 +56,7 @@ __[Пример документа](doc-examples/plan-plain-example.md)__
 
 [Подробное описание plan-plain](readme-plain.md)
 
-## [plan-graph](plan-graph.md)
+## [plan-graph](readme-graph.md)
 
 __plain-plan__ - прост и наивен и не очень хорошо подходит для сложных задач.
 
