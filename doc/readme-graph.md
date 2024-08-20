@@ -21,11 +21,13 @@
 # COMPL: 50                           Готовность в процентах
 ```
 
-__[Пример документа](img/plan-graph-example.md)__
+Строки с параметрами комментария должны идти последовательно, без пустых строк между ними или строк не являющихся параметрами комментария.
+
+__[Пример документа](doc/plan-graph-example.md)__
 
 Диаграмма для этого документа (кликабельно):
 
-![Diagram](img/plan-graph-example.png)
+![Diagram](doc/plan-graph-example.png)
 
 ## Запуск
 
@@ -111,7 +113,7 @@ __[Пример документа](img/plan-graph-example.md)__
 # COMPL: 90
 # DEV: Backender
 ```
-![Diagram](img/dependeny-example.png)
+![Diagram](doc/dependeny-example.png)
 
 Сплошные стрелки на диаграмме образуют дерево, структура которого соответствует структуре документа.
 Для диаграммы выше документ будет иметь следующую структуру:
@@ -133,7 +135,7 @@ __[Пример документа](img/plan-graph-example.md)__
 ```
 то диаграмма примет такой вид:
 
-![Diagram](img/dependeny-example-2.png)
+![Diagram](doc/dependeny-example-2.png)
 
 Теперь дерево изменилось и ему соответствует документ со следующей структурой:
 
@@ -199,15 +201,6 @@ ID всегда `MAIN`. Такой комментарий должен быть 
 
 
 ```
--t title
---title title
-```
-
-Заголовок документа, название задачи.
-
-По умолчанию __имя текущей ветки git__
-
-```
 -s scale
 --scale scale
 ```
@@ -217,8 +210,8 @@ ID всегда `MAIN`. Такой комментарий должен быть 
 По умолчанию: __1__
 
 ```
--f PL
---todo-suffix PL
+-f SUFFIX
+--todo-suffix SUFFIX
 ```
 
 Маркер для TODO. По умолчанию ищутся комментарии вида: TODO: PL: .....
@@ -342,16 +335,16 @@ verbose = 0
 
 Для ускорения ввода можно использовать шаблоны, которые поддерживаются всеми основными IDE.
 
-![Template](img/plan-graph-tpl-jb.gif)
+![Template](doc/plan-graph-tpl-jb.gif)
 
 Пример настройки для продуктов JetBrains:
 
-![Template](img/plan-graph-tpl-jb.png)
+![Template](doc/plan-graph-tpl-jb.png)
 
 Для навигации удобно использовать встроенные или установленные как дополнение в IDE списки  TODO с фильтрацией по маркеру PL
 
-![TODO](img/todo.png)
+![TODO](doc/todo.png)
 
 Если в IDE запустить утилиту во встроенном терминале, то можно легко перемещаться по TODO с помощью вывода утилиты в консоль
 
-![Terminal](img/terminal-graph.png)
+![Terminal](doc/terminal-graph.png)
