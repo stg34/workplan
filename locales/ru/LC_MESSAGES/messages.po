@@ -277,3 +277,6 @@ msgstr "Блокировщик"
 #, python-brace-format
 msgid "UNKNOWN DEPENDENCY '{dep}'"
 msgstr "Неизвестная зависимость '{dep}'"
+
+msgid "COMMENT DEFINITIONS:"
+msgstr "Определения комментариев:"

@@ -25,11 +25,12 @@ class ViewConsolePlainPlan():
         self.scanner_view = ViewConsoleScanner(arguments, scanner)
         self.task_view = ViewConsoleTask(self.task)
 
-    def print_summary(self, supress_error_no_main_comment=False):
+    def print_summary(self, suppress_error_no_main_comment=False):
         self.prerequisites_checker_view.print_errors()
         self.file_list_view.print_errors()
         self.scanner_view.print_errors()
-        self.task_view.print_errors(supress_error_no_main_comment)
+        self.task_view.print_errors(suppress_error_no_main_comment)
+        self.scanner_view.print_comment_positions()
 
         result = []
         if self.result['out_markdown_file']:

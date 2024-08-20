@@ -282,3 +282,6 @@ msgstr "Blocker"
 #, python-brace-format
 msgid "UNKNOWN DEPENDENCY '{dep}'"
 msgstr "Unknown dependency '{dep}'"
+
+msgid "COMMENT DEFINITIONS:"
+msgstr "Comment definitions:"

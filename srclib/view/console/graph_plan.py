@@ -31,6 +31,7 @@ class ViewConsoleGraphPlan():
         self.file_list_view.print_errors()
         self.scanner_view.print_errors()
         self.task_view.print_errors()
+        self.scanner_view.print_comment_positions()
 
         summary = []
         if self.result['out_graph_file']:

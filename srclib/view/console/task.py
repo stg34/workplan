@@ -9,11 +9,11 @@ class ViewConsoleTask():
     def __init__(self, task) -> None:
         self.task = task
 
-    def print_errors(self, supress_error_no_main_comment=False):
-        self.print_task_errors(supress_error_no_main_comment)
+    def print_errors(self, suppress_error_no_main_comment=False):
+        self.print_task_errors(suppress_error_no_main_comment)
         self.print_loops_error()
 
-    def print_task_errors(self, supress_error_no_main_comment):
+    def print_task_errors(self, suppress_error_no_main_comment):
         for comment in self.task.comments:
             presenter = GraphCommentPresenter(comment)
             if presenter.all_errors:
@@ -33,7 +33,7 @@ class ViewConsoleTask():
             if not graph.semantic_comments:
                 print_error(self.graph_presenter.error_no_comments)
 
-            if not graph.has_main_comment and not supress_error_no_main_comment:
+            if not graph.has_main_comment and not suppress_error_no_main_comment:
                 print_error(self.graph_presenter.error_no_main_comment)
 
             self.print_loops_error()

@@ -91,6 +91,6 @@ class AppPlanPlain(AppBasePlain):
             return AppPlanPlain.FAIL
 
         finally:
-            self.view.print_summary(supress_error_no_main_comment=True)
+            self.view.print_summary(suppress_error_no_main_comment=True)
 
         return AppPlanPlain.SUCCESS
