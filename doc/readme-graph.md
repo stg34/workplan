@@ -337,16 +337,16 @@ verbose = 0
 
 Для ускорения ввода можно использовать шаблоны, которые поддерживаются всеми основными IDE.
 
-![Template](doc/plan-graph-tpl-jb.gif)
+![Template](plan-graph-tpl-jb.gif)
 
 Пример настройки для продуктов JetBrains:
 
-![Template](doc/plan-graph-tpl-jb.png)
+![Template](plan-graph-tpl-jb.png)
 
 Для навигации удобно использовать встроенные или установленные как дополнение в IDE списки  TODO с фильтрацией по маркеру PL
 
-![TODO](doc/todo.png)
+![TODO](todo.png)
 
 Если в IDE запустить утилиту во встроенном терминале, то можно легко перемещаться по TODO с помощью вывода утилиты в консоль
 
-![Terminal](doc/terminal-graph.png)
+![Terminal](terminal-graph.png)
