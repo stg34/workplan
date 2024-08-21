@@ -16,7 +16,7 @@ from srclib.model.task import Task
 
 class AppPlanPlain(AppBasePlain):
     def __init__(self, sys_args):
-        arguments = PlainArguments(sys_args, '.plangraph.conf')
+        arguments = PlainArguments(sys_args, '.plan.conf')
         prerequisites_checker = PrerequisitesChecker(arguments.out_dir, arguments.git_binary_path, None)
         file_list = FileList(arguments.base_branch, arguments.verbose)
         scanner = PlainScanner(arguments.todo_suffix)
@@ -91,6 +91,6 @@ class AppPlanPlain(AppBasePlain):
             return AppPlanPlain.FAIL
 
         finally:
-            self.view.print_summary(supress_error_no_main_comment=True)
+            self.view.print_summary(suppress_error_no_main_comment=True)
 
         return AppPlanPlain.SUCCESS

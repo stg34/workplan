@@ -18,7 +18,7 @@ class PlanException(Exception):
 
 class AppPurgen(AppBasePlain):
     def __init__(self, sys_args):
-        arguments = PurgenArguments(sys_args, '.plangraph.conf')
+        arguments = PurgenArguments(sys_args, '.plan.conf')
         prerequisites_checker = PrerequisitesChecker(arguments.out_dir, arguments.git_binary_path, None)
         file_list = FileList(arguments.base_branch, arguments.verbose)
         scanner = GraphScanner(arguments.todo_suffix)

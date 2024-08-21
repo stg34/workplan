@@ -9,12 +9,29 @@ class PurgenArguments(BaseArguments):
     def arg_defs(self):
         args = {
             'out_patch': {
-                'config': {'method': 'get', 'params': {'fallback': 'plan.patch'}},
-                'args': {'names': ['-o', '--out-patch'], 'other': {}}
+                'config': {
+                    'method': 'get',
+                    'params': {'fallback': 'plan.patch'}
+                },
+                'args': {
+                    'names': ['-o', '--out-patch'],
+                    'other': {
+                        'help': 'Patch filename. Contains removed comments. Default is PL plan.patch'
+                    }
+                }
             },
             'dry_run': {
-                'config': {'method': 'getboolean', 'params': {'fallback': False}},
-                'args': {'names': ['--dry-run'], 'other': {'action': 'store_true'}}
+                'config': {
+                    'method': 'getboolean',
+                    'params': {'fallback': False}
+                },
+                'args': {
+                    'names': ['--dry-run'],
+                    'other': {
+                        'action': 'store_true',
+                        'help': 'Do not delete comments, only create a patch file'
+                    }
+                }
             },
         }
 

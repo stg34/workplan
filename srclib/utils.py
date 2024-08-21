@@ -29,6 +29,10 @@ def wrap_success(text):
     return Color.OKGREEN + text + Color.ENDC
 
 
+def wrap_info(text):
+    return Color.OKCYAN + text + Color.ENDC
+
+
 def print_error(text):
     print(wrap_error('=' * 80) + "\n")
     print(wrap_error(text))
@@ -45,6 +49,12 @@ def print_success(text):
     print(wrap_success('=' * 80) + "\n")
     print(wrap_success(text))
     print("\n" + wrap_success('=' * 80))
+
+
+def print_info(text):
+    print(wrap_info('=' * 80) + "\n")
+    print(wrap_info(text))
+    print("\n" + wrap_info('=' * 80))
 
 
 class ExecuteCommandError(Exception):

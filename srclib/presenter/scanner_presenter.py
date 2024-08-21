@@ -20,6 +20,23 @@ class ScannerPresenter():
         return ['\n'.join(errors)]
 
     @property
+    def positions(self):
+        comments = []
+
+        for src_comment in self.scanner.src_comments:
+            header = ''
+
+            if len(src_comment["header"]) > 0:
+                header = src_comment["header"][0]
+
+            comments.append([src_comment["file_name"], src_comment["line_num"], header])
+
+        comments.sort()
+        comments = [f'{c[0]}:{c[1]} {c[2]}' for c in comments]
+
+        return _('COMMENT DEFINITIONS:') + '\n\n' + '\n'.join(comments)
+
+    @property
     def exclude_hint(self):
         excluded_extensions = self.excluded_extensions
         error_files = [e['file_name'] for e in self.scanner.files_with_errors]
