@@ -1,0 +1,10 @@
+<templateSet group="HTML/XML">
+  <template name="plan" value="&lt;!-- TODO: WP: --&gt;&#10;&lt;!-- ID: $FILE_NAME$:$LINE_NUM$ --&gt;&#10;&lt;!-- TIME: 1 --&gt;&#10;&lt;!-- COMPL: 0 --&gt;" toReformat="false" toShortenFQNames="true">
+    <variable name="FILE_NAME" expression="fileRelativePath()" defaultValue="" alwaysStopAt="true" />
+    <variable name="LINE_NUM" expression="lineNumber()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML" value="true" />
+      <option name="RHTML" value="true" />
+    </context>
+  </template>
+</templateSet>

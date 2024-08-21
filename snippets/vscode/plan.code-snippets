@@ -1,13 +1,13 @@
 {
 	"plan": {
-		"scope": "python,javascript,ruby",
+		"scope": "python,php,ruby,javascript",
 		"prefix": "plan",
 		"body": [
-			"# TODO: PL: description",
-			"# ID: $RELATIVE_FILEPATH:$TM_LINE_NUMBER",
-			"# DEP: DEPENDENCY_ID",
-			"# TIME: 1",
-			"# COMPL: 0",
+			"$LINE_COMMENT TODO: PL: description",
+			"$LINE_COMMENT ID: $RELATIVE_FILEPATH:$TM_LINE_NUMBER",
+			"$LINE_COMMENT DEP: DEPENDENCY_ID",
+			"$LINE_COMMENT TIME: 1",
+			"$LINE_COMMENT COMPL: 0",
 		],
 		"description": "Plan comment"
 	}

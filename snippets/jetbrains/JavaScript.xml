@@ -1,0 +1,30 @@
+<templateSet group="JavaScript">
+  <template name="plan" value="// TODO: WP:&#10;// ID: $FILE_NAME$:$LINE_NUM$&#10;// TIME: 1&#10;// COMPL: 0" description="work plan comment" toReformat="false" toShortenFQNames="true">
+    <variable name="FILE_NAME" expression="fileRelativePath()" defaultValue="" alwaysStopAt="true" />
+    <variable name="LINE_NUM" expression="lineNumber()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="CSS" value="false" />
+      <option name="CUCUMBER_FEATURE_FILE" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="ECMAScript6" value="false" />
+      <option name="HAML" value="false" />
+      <option name="HTML" value="false" />
+      <option name="HTTP_CLIENT_ENVIRONMENT" value="false" />
+      <option name="JSON" value="false" />
+      <option name="LIQUID" value="false" />
+      <option name="OTHER" value="true" />
+      <option name="PUML" value="false" />
+      <option name="RBS_CODE" value="false" />
+      <option name="REQUEST" value="false" />
+      <option name="RHTML" value="false" />
+      <option name="RUBY" value="false" />
+      <option name="SHELL_SCRIPT" value="false" />
+      <option name="SQL" value="false" />
+      <option name="Slim" value="false" />
+      <option name="TypeScript" value="false" />
+      <option name="VUE_COMPONENT_DESCRIPTOR" value="true" />
+      <option name="Vue" value="false" />
+      <option name="XML" value="false" />
+    </context>
+  </template>
+</templateSet>
