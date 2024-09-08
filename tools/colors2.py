@@ -5,6 +5,7 @@ import matplotlib.colors
 # tuple(int('#afeeaa'.lstrip('#')[i:i+2], 16) for i in (0, 2, 4))
 
 
+
 def execute_command(command):
     res = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding="UTF8")
 

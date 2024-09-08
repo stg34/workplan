@@ -11,6 +11,7 @@ from srclib.view.dot.builder import ViewDotBuilder
 from srclib.view.markdown.builder import ViewMarkdownBuilder
 from srclib.view.console.graph_plan import ViewConsoleGraphPlan
 from srclib.model.task import Task
+from srclib.model.colorizer import Colorizer
 
 
 class AppPlanGraph(AppBasePlain):
@@ -24,7 +25,15 @@ class AppPlanGraph(AppBasePlain):
             'out_markdown_file': None
         }
 
+        # TODO: PL: Создать экземпляр колоризатора, передать ему конфиг на вход
+        # ID: srclib/app/graph_plan.py:27
+        # DEP: srclib/model/colorizer.py:1
+        # TIME: 0.1
+        # COMPL: 100
+
         super().__init__(arguments, prerequisites_checker, file_list, scanner)
+
+        self.colorizer = Colorizer(self.args.config)
 
         self.task = Task(self.args.work_hours)
         self.view = ViewConsoleGraphPlan(
@@ -45,9 +54,16 @@ class AppPlanGraph(AppBasePlain):
         self.task.build(self.comments)
 
     def build_dot(self):
+        # TODO: PL: Передать во ViewDotBuilder экземпляр колоризатора
+        # ID: srclib/app/graph_plan.py:54
+        # DEP: srclib/app/graph_plan.py:27
+        # TIME: 0.1
+        # COMPL: 100
+
         self.dot_builder = ViewDotBuilder(self.task,
                                           self.args.reverse,
                                           self.args.dot_color_scheme,
+                                          self.colorizer,
                                           self.args.graph_dir,
                                           self.args.verbose)
 

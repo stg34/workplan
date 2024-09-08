@@ -5,11 +5,12 @@ from srclib.presenter.comment_presenter import GraphCommentPresenter
 
 
 class ViewDotNode(ViewDotBaseNode):
-    def __init__(self, graph, comment, scheme):
+    def __init__(self, graph, comment, scheme, colorizer):
         self.graph = graph
         self.comment = comment
         self.comment_presenter = GraphCommentPresenter(comment)
         self.scheme = scheme
+        self.colorizer = colorizer
 
     @property
     def color_ver(self):
@@ -27,7 +28,18 @@ class ViewDotNode(ViewDotBaseNode):
         if self.comment.blocked:
             return self.scheme.line_error_color(ver)
 
-        return self.scheme.line_1_color(ver)
+        # TODO: PL: В классе ViewDotNode определить с помощью колоризатора цвет узла
+        # ID: srclib/view/dot/node.py:30
+        # DEP: srclib/view/dot/builder.py:47
+        # TIME: 0.1
+        # COMPL: 50
+
+        color_name = self.colorizer.match(self.comment.file_name)
+
+        if color_name == 1:
+            return self.scheme.line_1_color(ver)
+
+        return self.scheme.line_2_color(ver)
 
     @property
     def border_width(self):

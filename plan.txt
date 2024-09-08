@@ -1,0 +1,24 @@
+# TODO: PL: Раскраска узлов в графе на основе имён файлов.
+# ID: MAIN
+# DEP: srclib/view/dot/node.py:30
+# DEP: colorizer_test
+# DEP: dark_colors
+# DEP: light_colors
+# DEP: plan.conf
+# TIME: 1
+# COMPL: 0
+
+# TODO: PL: Написать тест колоризатора
+# ID: colorizer_test
+# TIME: 1
+# COMPL: 0
+
+# TODO: PL: Подобрать цвета для тёмной схемы
+# ID: dark_colors
+# TIME: 1
+# COMPL: 0
+
+# TODO: PL: Подобрать цвета для светлой схемы
+# ID: light_colors
+# TIME: 2
+# COMPL: 0

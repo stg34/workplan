@@ -10,11 +10,12 @@ from srclib.view.dot.edge import ViewDotEdge
 
 
 class ViewDotBuilder:
-    def __init__(self, task, reverse, scheme, dir, verbose):
+    def __init__(self, task, reverse, scheme, colorizer, dir, verbose):
         self.task = task
         self.comments_graph = task.graph
         self.reverse = reverse
         self.scheme = scheme
+        self.colorizer = colorizer
         self.dir = dir
         self.content = ''
         self.verbose = verbose
@@ -44,7 +45,12 @@ class ViewDotBuilder:
             if comment.is_main:
                 node = ViewDotMainNode(self.comments_graph, comment, self.scheme)
             else:
-                node = ViewDotNode(self.comments_graph, comment, self.scheme)
+                # TODO: PL: Передать в ViewDotNode колоризатор
+                # ID: srclib/view/dot/builder.py:47
+                # DEP: srclib/app/graph_plan.py:54
+                # TIME: 0.1
+                # COMPL: 100
+                node = ViewDotNode(self.comments_graph, comment, self.scheme, self.colorizer)
 
             self.content += node.content
             dot_nodes[comment.id] = node
