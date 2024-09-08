@@ -1,12 +1,13 @@
 # encoding: utf-8
 
 import pathlib
-from srclib.utils import execute_command
+from srclib.utils import execute_git
 from srclib.utils import ExecuteCommandError
 
 
 class FileList():
-    def __init__(self, base_branch, verbose=False):
+    def __init__(self, git_binary_path, base_branch, verbose=False):
+        self.git_path = git_binary_path
         self.base_branch = base_branch
         self.verbose = verbose
         self.file_names = []
@@ -21,9 +22,9 @@ class FileList():
         self.file_names = []
 
         try:
-            self.file_names += execute_command("git -c core.quotepath=false ls-files --modified", self.verbose)
-            self.file_names += execute_command("git -c core.quotepath=false ls-files --others --exclude-standard", self.verbose)
-            self.file_names += execute_command(f"git -c core.quotepath=false diff --name-only --diff-filter=d --merge-base {self.base_branch}", self.verbose)
+            self.file_names += execute_git(self.git_path, "-c core.quotepath=false ls-files --modified", self.verbose)
+            self.file_names += execute_git(self.git_path, "-c core.quotepath=false ls-files --others --exclude-standard", self.verbose)
+            self.file_names += execute_git(self.git_path, f"-c core.quotepath=false diff --name-only --diff-filter=d --merge-base {self.base_branch}", self.verbose)
         except ExecuteCommandError as error:
             self.errors.append(error)
 

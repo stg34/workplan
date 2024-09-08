@@ -17,7 +17,7 @@ class AppPlanGraph(AppBasePlain):
     def __init__(self, sys_args):
         arguments = GraphArguments(sys_args, '.plan.conf')
         prerequisites_checker = PrerequisitesChecker(arguments.out_dir, arguments.git_binary_path, arguments.dot_binary_path)
-        file_list = FileList(arguments.base_branch, arguments.verbose)
+        file_list = FileList(arguments.git_binary_path, arguments.base_branch, arguments.verbose)
         scanner = GraphScanner(arguments.todo_suffix)
         self.result = {
             'out_graph_file': None,
@@ -49,6 +49,7 @@ class AppPlanGraph(AppBasePlain):
                                           self.args.reverse,
                                           self.args.dot_color_scheme,
                                           self.args.graph_dir,
+                                          self.args.dot_binary_path,
                                           self.args.verbose)
 
         self.dot_builder.build()

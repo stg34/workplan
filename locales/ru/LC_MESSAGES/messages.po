@@ -125,7 +125,7 @@ msgstr "dot не найден"
 #: srclib/presenter/scanner_presenter.py:32
 #, python-brace-format
 msgid "HINT SCAN ERROR {ext}"
-msgstr "Совет: добавьте аргумент коммандной строки: --exclude-extensions={ext}"
+msgstr "Совет: добавьте аргумент командной строки: --exclude-extensions={ext}"
 
 #: srclib/presenter/graph_presenter.py:66 srclib/presenter/edge_presenter.py:16
 #: srclib/presenter/graph_presenter.py:66 srclib/presenter/edge_presenter.py:16
@@ -136,7 +136,7 @@ msgstr "Цикл"
 #: srclib/presenter/file_list_presenter.py:17
 #, python-brace-format
 msgid "EXECUTE GIT ERROR {command} {error}"
-msgstr "Ошибка выполнения git {command} {error}"
+msgstr "Ошибка выполнения git:\n{command}\n\n{error}"
 
 #: srclib/view/console/purgen.py:33 srclib/view/console/purgen.py:33
 #, python-brace-format

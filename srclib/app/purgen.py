@@ -6,7 +6,7 @@ from srclib.model.file_list import FileList
 from srclib.model.graph_scanner import GraphScanner
 from srclib.view.console.purgen import ViewConsolePurgen
 from collections import defaultdict
-from srclib.utils import execute_command
+from srclib.utils import execute_git
 from pathlib import Path
 from srclib.app.base_plan import AppBasePlain
 from tempfile import NamedTemporaryFile
@@ -20,7 +20,7 @@ class AppPurgen(AppBasePlain):
     def __init__(self, sys_args):
         arguments = PurgenArguments(sys_args, '.plan.conf')
         prerequisites_checker = PrerequisitesChecker(arguments.out_dir, arguments.git_binary_path, None)
-        file_list = FileList(arguments.base_branch, arguments.verbose)
+        file_list = FileList(arguments.git_binary_path, arguments.base_branch, arguments.verbose)
         scanner = GraphScanner(arguments.todo_suffix)
         super().__init__(arguments, prerequisites_checker, file_list, scanner)
         self.result = {
@@ -83,7 +83,7 @@ class AppPurgen(AppBasePlain):
                 tf.write(content)
                 tf.flush()
 
-                patch += execute_command(f'git -c core.quotepath=false diff --no-index "{tf.name}" "{file_name}"', False, True)
+                patch += execute_git(self.args.git_binary_path, f'-c core.quotepath=false diff --no-index "{tf.name}" "{file_name}"', self.args.verbose)
 
             self.write_file(file_name, content)
 
