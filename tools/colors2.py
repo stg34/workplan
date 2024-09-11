@@ -15,7 +15,7 @@ def execute_command(command):
 
 
 def color1(hex, n):
-    S0 = 0.9
+    S0 = 1
     S1 = S0 * 0.6
     S2 = S1 * 0.6
     S = [S0, S1, S2]
@@ -99,10 +99,11 @@ def base_color(hex):
 
 DARK_CANVAS = '#2b2b2b'
 DARK_PRIMARY_FONT = '#f2f2f2'
-DARK_SECONDARY_FONT = '#f28f4e'
-DARK_ERROR_FONT = '#f14c4c'
-DARK_EXISTING_FILE = '#00abff'
-DARK_NEW_FILE = '#47ac55'
+DARK_SECONDARY_FONT = '#D7B600'
+DARK_ERROR_FONT = '#AD003D'
+DARK_COLOR_1 = '#0082AD'
+DARK_COLOR_2 = '#00D70A'
+DARK_COLOR_3 = '#6D00F6'
 
 LIGHT_CANVAS = '#f5f5f5'
 LIGHT_PRIMARY_FONT = '#54647A'
@@ -137,29 +138,25 @@ COLORS_DARK = {
             'font_secondary_color_1': color1(DARK_SECONDARY_FONT, 1),
             'font_secondary_color_2': color1(DARK_SECONDARY_FONT, 2),
         },
-
-        'error font color': {
+        'error color': {
             'font_error_color_0': color1(DARK_ERROR_FONT, 0),
             'font_error_color_1': color1(DARK_ERROR_FONT, 1),
             'font_error_color_2': color1(DARK_ERROR_FONT, 2),
         },
-
-        'border and edge 1 (existing file)': {
-            'line_1_color_0': color1(DARK_EXISTING_FILE, 0),
-            'line_1_color_1': color1(DARK_EXISTING_FILE, 1),
-            'line_1_color_2': color1(DARK_EXISTING_FILE, 2),
+        'border and edge 1': {
+            'line_1_color_0': color1(DARK_COLOR_1, 0),
+            'line_1_color_1': color1(DARK_COLOR_1, 1),
+            'line_1_color_2': color1(DARK_COLOR_1, 2),
         },
-
-        'border and edge 2 (new file)': {
-            'line_2_color_0': color1(DARK_NEW_FILE, 0),
-            'line_2_color_1': color1(DARK_NEW_FILE, 1),
-            'line_2_color_2': color1(DARK_NEW_FILE, 2),
+        'border and edge 2': {
+            'line_2_color_0': color1(DARK_COLOR_2, 0),
+            'line_2_color_1': color1(DARK_COLOR_2, 1),
+            'line_2_color_2': color1(DARK_COLOR_2, 2),
         },
-
-        'border and edge 3 color': {
-            'line_error_color_0': color1(DARK_ERROR_FONT, 0),
-            'line_error_color_1': color1(DARK_ERROR_FONT, 1),
-            'line_error_color_2': color1(DARK_ERROR_FONT, 2),
+        'border and edge 3': {
+            'line_3_color_0': color1(DARK_COLOR_3, 0),
+            'line_3_color_1': color1(DARK_COLOR_3, 1),
+            'line_3_color_2': color1(DARK_COLOR_3, 2),
         }
     }
 
@@ -279,5 +276,5 @@ def py(colors):
         f.write(content)
 
 
-dot(COLORS_LIGHT)
+dot(COLORS_DARK)
 # py(COLORS_DARK)
