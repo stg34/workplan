@@ -26,6 +26,9 @@ class Colorizer:
         self.parse()
 
     def parse(self):
+        if 'FILE_COLOR' not in self.config:
+            return
+
         for opt in self.config.options('FILE_COLOR'):
             val = self.config.get('FILE_COLOR', opt)
             if val not in self.ALLOWED_COLORS:

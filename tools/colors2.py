@@ -128,35 +128,35 @@ COLORS_DARK = {
         },
 
         'primary font color': {
-            'font_primary_color_0': color1(DARK_PRIMARY_FONT, 0),
-            'font_primary_color_1': color1(DARK_PRIMARY_FONT, 1),
-            'font_primary_color_2': color1(DARK_PRIMARY_FONT, 2),
+            0: color1(DARK_PRIMARY_FONT, 0),
+            1: color1(DARK_PRIMARY_FONT, 1),
+            2: color1(DARK_PRIMARY_FONT, 2),
         },
 
         'secondary font color': {
-            'font_secondary_color_0': color1(DARK_SECONDARY_FONT, 0),
-            'font_secondary_color_1': color1(DARK_SECONDARY_FONT, 1),
-            'font_secondary_color_2': color1(DARK_SECONDARY_FONT, 2),
+            0: color1(DARK_SECONDARY_FONT, 0),
+            1: color1(DARK_SECONDARY_FONT, 1),
+            2: color1(DARK_SECONDARY_FONT, 2),
         },
         'error color': {
-            'font_error_color_0': color1(DARK_ERROR_FONT, 0),
-            'font_error_color_1': color1(DARK_ERROR_FONT, 1),
-            'font_error_color_2': color1(DARK_ERROR_FONT, 2),
+            0: color1(DARK_ERROR_FONT, 0),
+            1: color1(DARK_ERROR_FONT, 1),
+            2: color1(DARK_ERROR_FONT, 2),
         },
-        'border and edge 1': {
-            'line_1_color_0': color1(DARK_COLOR_1, 0),
-            'line_1_color_1': color1(DARK_COLOR_1, 1),
-            'line_1_color_2': color1(DARK_COLOR_1, 2),
+        'color_1': {
+            0: color1(DARK_COLOR_1, 0),
+            1: color1(DARK_COLOR_1, 1),
+            2: color1(DARK_COLOR_1, 2),
         },
-        'border and edge 2': {
-            'line_2_color_0': color1(DARK_COLOR_2, 0),
-            'line_2_color_1': color1(DARK_COLOR_2, 1),
-            'line_2_color_2': color1(DARK_COLOR_2, 2),
+        'color_2': {
+            0: color1(DARK_COLOR_2, 0),
+            1: color1(DARK_COLOR_2, 1),
+            2: color1(DARK_COLOR_2, 2),
         },
-        'border and edge 3': {
-            'line_3_color_0': color1(DARK_COLOR_3, 0),
-            'line_3_color_1': color1(DARK_COLOR_3, 1),
-            'line_3_color_2': color1(DARK_COLOR_3, 2),
+        'color_3': {
+            0: color1(DARK_COLOR_3, 0),
+            1: color1(DARK_COLOR_3, 1),
+            2: color1(DARK_COLOR_3, 2),
         }
     }
 
@@ -213,32 +213,59 @@ COLORS_LIGHT = {
     }
 
 
+def dot_table(id, line_color, primary, secondary, error):
+    table = f'''
+        "{id}" [label=<
+            <table border="0" cellspacing="5" cellpadding="5" cellborder="1" color="{line_color}" bgcolor="#2a2a2a">
+                <tr>
+                    <td balign="left" align="left" colspan="2"><font point-size="14" color="{primary}">Создать модель Profile<br/><br/><font point-size="14" color="{primary}">bloggitt/core/models.py:10</font></font></td>
+                </tr>
+                <tr>
+                    <td balign="left" align="left"><font point-size="14" color="{secondary}">Время: ?</font></td><td balign="left" align="left"><font point-size="14" color="{secondary}">Прогресс: 0 %</font></td>
+                </tr>
+                <tr>
+                    <td balign="left" align="left" colspan="2"><font point-size="14" color="{error}">Неверный формат времени</font></td>
+                </tr>
+            </table>>
+        ]
+    '''
+
+    return table
+
 def dot(colors):
     canvas_color = colors['canvas color']['canvas_color']
     content = 'digraph workplan {\n'
     content += 'fontname="Helvetica,Arial,sans-serif"\n'
     content += f'bgcolor = "{canvas_color}"\n'
     content += 'dpi=60\n'
-    content += 'node [style=filled shape="box" fontname="Helvetica,Arial,sans-serif"]\n'
+    content += 'node [shape="plain" nojustify=true fontname="Helvetica,Arial,sans-serif"]\n'
     content += 'pad="0.5,0.5"\n'
     content += 'fontsize="32"\n'
     content += 'rankdir = "LR"\n'
 
-    groups = list(colors.keys())
-    groups.reverse()
-    for group in groups:
-        for color_name in colors[group].keys():
-            color = colors[group][color_name]
-            content += f'"{color_name}" [fontsize="18" fillcolor="{color}" width=3]\n'
+    # groups = list(colors.keys())
+    # groups.reverse()
+    # for group in groups:
+    #     for color_name in colors[group].keys():
+    #         color = colors[group][color_name]
+    #         content += f'"{color_name}" [fontsize="18" fillcolor="{color}" width=3]\n'
 
-    for group in groups:
-        colors_num = len(colors[group])
-        colors_names = list(colors[group].keys())
+    # for group in groups:
+    #     colors_num = len(colors[group])
+    #     colors_names = list(colors[group].keys())
 
-        if colors_num > 1:
-            for n in range(1, colors_num):
+    #     if colors_num > 1:
+    #         for n in range(1, colors_num):
 
-                content += f'{colors_names[n-1]}->{colors_names[n]}\n'
+    #             content += f'{colors_names[n-1]}->{colors_names[n]}\n'
+
+    print(colors['color_1'])
+
+    content += dot_table('10', colors['color_1'][0], colors['primary font color'][0], colors['secondary font color'][0], colors['error color'][0])
+    content += dot_table('11', colors['color_1'][1], colors['primary font color'][1], colors['secondary font color'][1], colors['error color'][1])
+    content += dot_table('12', colors['color_1'][2], colors['primary font color'][2], colors['secondary font color'][2], colors['error color'][2])
+    content += '10->11;'
+    content += '11->12;'
 
     content += '}\n'
 
