@@ -100,7 +100,7 @@ def hex_to_rgb(hex):
 
 
 def rgb_to_hex(rgb):
-    return f'#{rgb[0]:x}{rgb[1]:x}{rgb[2]:x}'
+    return f'#{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}'
 
 
 def setup_i18n(localedir, domain):
