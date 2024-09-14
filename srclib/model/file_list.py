@@ -17,7 +17,7 @@ class FileList():
         return bool(self.errors)
 
     def list(self, exclude_ext=None):
-        exclude_ext = ['.' + ext for ext in exclude_ext or []]
+        exclude_ext = exclude_ext or []
         self.file_names = []
 
         try:
@@ -29,4 +29,8 @@ class FileList():
 
         self.file_names = list(set(self.file_names))
         self.file_names.sort()
+        print(exclude_ext)
+        for n in self.file_names:
+            print(pathlib.Path(n).suffix)
+
         self.file_names = [n for n in self.file_names if pathlib.Path(n).suffix not in exclude_ext]
