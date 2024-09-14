@@ -17,7 +17,7 @@ class ViewDotMainNode(ViewDotBaseNode):
 
     @property
     def border_color(self):
-        return self.scheme.line_1_color(0)
+        return self.scheme.color_1(0)
 
     @property
     def border_width(self):
@@ -59,4 +59,4 @@ class ViewDotMainNode(ViewDotBaseNode):
         if self.comment_presenter.errors or self.comment_presenter.graph_errors:
             return f'"{self.comment.id}" [label=<{self.error_label}>]\n'
 
-        return f'"{self.comment.id}" [shape="circle" label="" width="0.25" style="filled" color="{self.scheme.line_1_color(0)}"]\n'
+        return f'"{self.comment.id}" [shape="circle" label="" width="0.25" style="filled" color="{self.scheme.color_1(0)}"]\n'

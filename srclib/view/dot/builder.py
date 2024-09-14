@@ -76,7 +76,7 @@ class ViewDotBuilder:
         self.content = 'digraph {\n'
         self.content += f'fontname="{self.scheme.font_name}"\n'
         self.content += f'bgcolor="{self.scheme.canvas_color}"\n'
-        self.content += f'fontcolor="{self.scheme.font_primary_color(0)}"\n'
+        self.content += f'fontcolor="{self.scheme.font_color_1(0)}"\n'
         self.content += f'dpi={self.scheme.dpi}\n'
         self.content += f'rankdir="{self.rankdir}"\n'
         self.content += 'pad="0.5,0.5"\n'

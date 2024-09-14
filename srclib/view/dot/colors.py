@@ -1,44 +1,65 @@
 # encoding: utf-8
 
-COLORS = {
-    # canvas color
-    'canvas_color': '#2b2b2b',
+COLORS_DARK = {
+    'canvas_color': '#292929',
 
-    # main node line color
-    'main_node_line_color': '#838383',
+    'node_background_color_0': '#262626',
+    'node_background_color_1': '#292929',
+    'node_background_color_2': '#292929',
 
-    # node background color
-    'node_color_0': '#292929',
-    'node_color_1': '#2a2a2a',
-    'node_color_2': '#2b2b2b',
+    'font_color_1_0': '#cccccc',
+    'font_color_1_1': '#808080',
+    'font_color_1_2': '#4c4c4c',
 
-    # primary font color
-    'font_primary_color_0': '#dadada',
-    'font_primary_color_1': '#838383',
-    'font_primary_color_2': '#4e4e4e',
+    'font_color_2_0': '#cc8529',
+    'font_color_2_1': '#806440',
+    'font_color_2_2': '#4c3f2e',
 
-    # secondary font color
-    'font_secondary_color_0': '#da8a55',
-    'font_secondary_color_1': '#836653',
-    'font_secondary_color_2': '#4e443d',
+    'error_color_0': '#cc2929',
+    'error_color_1': '#804040',
+    'error_color_2': '#4c2e2e',
 
-    # error font color
-    'font_error_color_0': '#d95353',
-    'font_error_color_1': '#825252',
-    'font_error_color_2': '#4e3d3d',
+    'color_1_0': '#2970cc',
+    'color_1_1': '#405c80',
+    'color_1_2': '#2e3b4c',
 
-    # border and edge 1 (existing file)
-    'line_1_color_0': '#17a1e6',
-    'line_1_color_1': '#3f718a',
-    'line_1_color_2': '#384a53',
+    'color_2_0': '#29cccc',
+    'color_2_1': '#408080',
+    'color_2_2': '#2e4c4c',
 
-    # border and edge 2 (new file)
-    'line_2_color_0': '#499b54',
-    'line_2_color_1': '#3f5d44',
-    'line_2_color_2': '#2d382f',
+    'color_3_0': '#29cc70',
+    'color_3_1': '#40805c',
+    'color_3_2': '#2e4c3b',
+}
 
-    # border and edge 3 color
-    'line_error_color_0': '#d95353',
-    'line_error_color_1': '#825252',
-    'line_error_color_2': '#4e3d3d'
+COLORS_LIGHT = {
+    'canvas_color': '#f5f5f5',
+
+    'node_background_color_0': '#f0f0f0',
+    'node_background_color_1': '#f5f5f5',
+    'node_background_color_2': '#f5f5f5',
+
+    'font_color_1_0': '#4c4c4c',
+    'font_color_1_1': '#808080',
+    'font_color_1_2': '#cccccc',
+
+    'font_color_2_0': '#b26c12',
+    'font_color_2_1': '#cca066',
+    'font_color_2_2': '#e6d1b8',
+
+    'error_color_0': '#cc1414',
+    'error_color_1': '#d96c6c',
+    'error_color_2': '#f2c2c2',
+
+    'color_1_0': '#1464cc',
+    'color_1_1': '#6c9cd9',
+    'color_1_2': '#c2d7f2',
+
+    'color_2_0': '#14cccc',
+    'color_2_1': '#6cd9d9',
+    'color_2_2': '#c2f2f2',
+
+    'color_3_0': '#14cc64',
+    'color_3_1': '#6cd99c',
+    'color_3_2': '#c2f2d7',
 }

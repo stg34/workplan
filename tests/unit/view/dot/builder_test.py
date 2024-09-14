@@ -2,6 +2,8 @@
 
 import unittest
 import datetime
+import configparser
+from srclib.model.colorizer import Colorizer
 from tests.unit.view.dot.base_test_case import BaseViewDotTestCase
 from srclib.view.dot.builder import ViewDotBuilder
 
@@ -34,7 +36,8 @@ class ViewDotBuilderTest(BaseViewDotTestCase):
         task.built_at = datetime.datetime(2020, 5, 17, 11, 22, 33)
         self.assertFalse(task.graph.has_error)
 
-        builder = ViewDotBuilder(task, False, self.default_color_scheme, 'tb', False)
+        colorizer = Colorizer(configparser.ConfigParser())
+        builder = ViewDotBuilder(task, False, self.default_color_scheme, colorizer, 'tb', False)
         builder.build()
 
         self.assertIn('Task title', builder.content)

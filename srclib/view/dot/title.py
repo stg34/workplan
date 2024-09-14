@@ -17,8 +17,8 @@ class ViewDotTitle(ViewDotBaseNode):
 
     def wrap_font(self, row):
         font_size = self.scheme.node_main_font_size
-        primary_color = self.scheme.font_primary_color(0)
-        secondary_color = self.scheme.font_secondary_color(0)
+        primary_color = self.scheme.font_color_1(0)
+        secondary_color = self.scheme.font_color_2(0)
 
         return [
             self.font_tag(row[0], font_size, primary_color),
@@ -36,7 +36,7 @@ class ViewDotTitle(ViewDotBaseNode):
 
     @property
     def details_data(self):
-        primary_color = self.scheme.font_primary_color(0)
+        primary_color = self.scheme.font_color_1(0)
         font_size = self.scheme.node_main_font_size
 
         left = [self.wrap_font([
@@ -130,7 +130,7 @@ class ViewDotTitle(ViewDotBaseNode):
         if len(self.graph_presenter.errors) == 0:
             return ''
 
-        font_color = self.scheme.font_error_color_0
+        font_color = self.scheme.error_color_0
         font_size = self.scheme.node_main_font_size
 
         content = '<table border="0" cellborder="0" cellpadding="2" cellspacing="0" color="red">\n'
@@ -147,12 +147,12 @@ class ViewDotTitle(ViewDotBaseNode):
     @property
     def label(self):
         font_size = self.scheme.graph_title_fontsize
-        font_color = self.scheme.font_primary_color(0)
+        font_color = self.scheme.font_color_1(0)
         title = self.font_tag(self.fit_escape_string(self.task_presenter.title, width=100), font_size, font_color)
 
         content = f'''
             <table
-                color="{self.scheme.font_primary_color(0)}"
+                color="{self.scheme.font_color_1(0)}"
                 bgcolor="{self.background_color()}"
                 border="0"
                 cellborder="0"

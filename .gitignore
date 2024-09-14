@@ -32,3 +32,4 @@ __pycache__
 /tmp/*
 /colors-test.png
 /colors-test.dot
+/colors-test.conf

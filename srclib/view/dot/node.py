@@ -14,6 +14,9 @@ class ViewDotNode(ViewDotBaseNode):
 
     @property
     def color_ver(self):
+        if self.comment.blocked or self.comment.estimate.has_errors:
+            return 0
+
         if self.comment.progress.is_almost_done:
             return 1
         elif self.comment.progress.is_done:
@@ -25,21 +28,24 @@ class ViewDotNode(ViewDotBaseNode):
     def border_color(self):
         ver = self.color_ver
 
-        if self.comment.blocked:
-            return self.scheme.line_error_color(ver)
+        if self.comment.blocked or self.comment.estimate.has_errors:
+            return self.scheme.error_color(ver)
 
         # TODO: PL: В классе ViewDotNode определить с помощью колоризатора цвет узла
         # ID: srclib/view/dot/node.py:30
         # DEP: srclib/view/dot/builder.py:47
         # TIME: 0.1
-        # COMPL: 50
+        # COMPL: 100
 
         color_name = self.colorizer.match(self.comment.file_name)
 
         if color_name == 1:
-            return self.scheme.line_1_color(ver)
+            return self.scheme.color_1(ver)
 
-        return self.scheme.line_2_color(ver)
+        if color_name == 2:
+            return self.scheme.color_2(ver)
+
+        return self.scheme.color_3(ver)
 
     @property
     def border_width(self):
@@ -47,7 +53,7 @@ class ViewDotNode(ViewDotBaseNode):
             return 1
 
         if self.comment.progress.is_in_progress:
-            return 3
+            return 2
 
         return 1
 

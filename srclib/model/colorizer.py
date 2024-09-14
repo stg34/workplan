@@ -3,7 +3,7 @@
 # TODO: PL: Создать класс колоризатора, который будет отвечать за цвет в зависимости от пути или имени файла.
 # ID: srclib/model/colorizer.py:1
 # TIME: 2
-# COMPL: 90
+# COMPL: 100
 
 
 from pathlib import PurePath
@@ -16,8 +16,8 @@ class ColorizerParseError(Exception):
 
 
 class Colorizer:
-    ALLOWED_COLORS = ['color1', 'color2', 'color3']
-    DEFAULT_COLOR_NUM = 2
+    ALLOWED_COLORS = ['color_1', 'color_2', 'color_3']
+    DEFAULT_COLOR_NUM = 1
 
     def __init__(self, config):
         self.config = config

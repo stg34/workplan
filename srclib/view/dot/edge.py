@@ -17,9 +17,9 @@ class ViewDotEdge:
     @property
     def font_color(self):
         if self.comments_graph.is_edge_in_loop(self.src.comment, self.dst.comment):
-            return self.scheme.line_error_color(0)
+            return self.scheme.error_color(0)
 
-        return self.scheme.font_primary_color(0)
+        return self.scheme.font_color_1(0)
 
     @property
     def style(self):
@@ -34,7 +34,7 @@ class ViewDotEdge:
     @property
     def color(self):
         if self.comments_graph.is_edge_in_loop(self.src.comment, self.dst.comment):
-            return self.scheme.line_error_color(0)
+            return self.scheme.error_color(0)
 
         src = self.src.border_color
         dst = self.dst.border_color
