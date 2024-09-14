@@ -1,11 +1,5 @@
 # encoding: utf-8
 
-# TODO: PL: Создать класс колоризатора, который будет отвечать за цвет в зависимости от пути или имени файла.
-# ID: srclib/model/colorizer.py:1
-# TIME: 2
-# COMPL: 100
-
-
 from pathlib import PurePath
 
 

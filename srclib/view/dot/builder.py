@@ -45,11 +45,6 @@ class ViewDotBuilder:
             if comment.is_main:
                 node = ViewDotMainNode(self.comments_graph, comment, self.scheme)
             else:
-                # TODO: PL: Передать в ViewDotNode колоризатор
-                # ID: srclib/view/dot/builder.py:47
-                # DEP: srclib/app/graph_plan.py:54
-                # TIME: 0.1
-                # COMPL: 100
                 node = ViewDotNode(self.comments_graph, comment, self.scheme, self.colorizer)
 
             self.content += node.content

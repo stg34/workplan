@@ -29,7 +29,7 @@ class FileList():
 
         self.file_names = list(set(self.file_names))
         self.file_names.sort()
-        print(exclude_ext)
+
         for n in self.file_names:
             print(pathlib.Path(n).suffix)
 

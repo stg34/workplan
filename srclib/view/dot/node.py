@@ -31,12 +31,6 @@ class ViewDotNode(ViewDotBaseNode):
         if self.comment.blocked or self.comment.estimate.has_errors:
             return self.scheme.error_color(ver)
 
-        # TODO: PL: В классе ViewDotNode определить с помощью колоризатора цвет узла
-        # ID: srclib/view/dot/node.py:30
-        # DEP: srclib/view/dot/builder.py:47
-        # TIME: 0.1
-        # COMPL: 100
-
         color_name = self.colorizer.match(self.comment.file_name)
 
         if color_name == 1:
