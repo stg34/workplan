@@ -9,11 +9,12 @@ from srclib.view.dot.edge import ViewDotEdge
 
 
 class ViewDotBuilder:
-    def __init__(self, task, reverse, scheme, dir, dot_binary_path, verbose):
+    def __init__(self, task, reverse, scheme, colorizer, dir, dot_binary_path, verbose):
         self.task = task
         self.comments_graph = task.graph
         self.reverse = reverse
         self.scheme = scheme
+        self.colorizer = colorizer
         self.dir = dir
         self.content = ''
         self.dot_binary_path = dot_binary_path
@@ -44,7 +45,7 @@ class ViewDotBuilder:
             if comment.is_main:
                 node = ViewDotMainNode(self.comments_graph, comment, self.scheme)
             else:
-                node = ViewDotNode(self.comments_graph, comment, self.scheme)
+                node = ViewDotNode(self.comments_graph, comment, self.scheme, self.colorizer)
 
             self.content += node.content
             dot_nodes[comment.id] = node
@@ -70,7 +71,7 @@ class ViewDotBuilder:
         self.content = 'digraph {\n'
         self.content += f'fontname="{self.scheme.font_name}"\n'
         self.content += f'bgcolor="{self.scheme.canvas_color}"\n'
-        self.content += f'fontcolor="{self.scheme.font_primary_color(0)}"\n'
+        self.content += f'fontcolor="{self.scheme.font_color_1(0)}"\n'
         self.content += f'dpi={self.scheme.dpi}\n'
         self.content += f'rankdir="{self.rankdir}"\n'
         self.content += 'pad="0.5,0.5"\n'

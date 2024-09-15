@@ -14,9 +14,6 @@ __pycache__
 htmlcov
 .coverage
 __pycache__
-/plan.png
-/plan.md
-/plan.html
 /test*.html
 /test*.md
 /test*.dot
@@ -25,11 +22,14 @@ __pycache__
 htmlcov
 .coverage
 __pycache__
-/plan.png
-/plan.md
-/plan.html
+/plan*.png
+/plan*.md
+/plan*.dot
+/plan*.html
 /test*.html
 /test*.md
 /test*.dot
 /tmp/*
 /colors-test.png
+/colors-test.dot
+/colors-test.conf

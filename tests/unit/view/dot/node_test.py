@@ -1,6 +1,8 @@
 # encoding: utf-8
 
 import unittest
+import configparser
+from srclib.model.colorizer import Colorizer
 from tests.unit.view.dot.base_test_case import BaseViewDotTestCase
 from srclib.view.dot.node import ViewDotNode
 from parsel import Selector
@@ -44,7 +46,8 @@ class ViewDotNodeTest(BaseViewDotTestCase):
 
         comment1 = task.graph.comment('id1')
 
-        node1 = ViewDotNode(task.graph, comment1, self.default_color_scheme)
+        colorizer = Colorizer(configparser.ConfigParser())
+        node1 = ViewDotNode(task.graph, comment1, self.default_color_scheme, colorizer)
         selector = Selector(text=node1.label)
         rows_selector = selector.css('tr')
 
@@ -56,7 +59,7 @@ class ViewDotNodeTest(BaseViewDotTestCase):
         self.assertIn('Developer 1', self.get_selector_text(rows_selector[2]))
 
         comment2 = task.graph.comment('id2')
-        node2 = ViewDotNode(task.graph, comment2, self.default_color_scheme)
+        node2 = ViewDotNode(task.graph, comment2, self.default_color_scheme, colorizer)
         selector = Selector(text=node2.label)
         rows_selector = selector.css('tr')
 
@@ -68,7 +71,7 @@ class ViewDotNodeTest(BaseViewDotTestCase):
         self.assertIn('Progress is not defined', self.get_selector_text(rows_selector[5]))
 
         comment = task.graph.comment('id3')
-        node = ViewDotNode(task.graph, comment, self.default_color_scheme)
+        node = ViewDotNode(task.graph, comment, self.default_color_scheme, colorizer)
         selector = Selector(text=node.label)
         rows_selector = selector.css('tr')
 

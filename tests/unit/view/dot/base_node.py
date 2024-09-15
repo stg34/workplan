@@ -36,26 +36,26 @@ class ViewDotBaseNode:
         return f'<font point-size="{size}" color="{color}">{bold_open}{text}{bold_close}</font>'
 
     @property
-    def font_primary_color(self):
-        return self.scheme.font_primary_color(self.color_ver)
+    def font_color_1(self):
+        return self.scheme.font_color_1(self.color_ver)
 
     @property
-    def font_secondary_color(self):
-        return self.scheme.font_secondary_color(self.color_ver)
+    def font_color_2(self):
+        return self.scheme.font_color_2(self.color_ver)
 
     @property
     def error_color(self):
-        return self.scheme.line_error_color(0)
+        return self.scheme.error_color(0)
 
     def font_primary(self, text, bold=False):
-        return self.font_tag(text, self.scheme.node_font_size, self.font_primary_color, bold)
+        return self.font_tag(text, self.scheme.node_font_size, self.font_color_1, bold)
 
     def font_secondary(self, text, bold=False):
-        return self.font_tag(text, self.scheme.node_font_size, self.font_secondary_color, bold)
+        return self.font_tag(text, self.scheme.node_font_size, self.font_color_2, bold)
 
     def font_error(self, text, bold=False):
         return self.font_tag(text, self.scheme.node_font_size, self.error_color, bold)
 
     @property
     def border_color(self):
-        return self.scheme.line_1_color(0)
+        return self.scheme.color_1(0)

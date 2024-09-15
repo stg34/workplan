@@ -18,7 +18,7 @@ class FileList():
         return bool(self.errors)
 
     def list(self, exclude_ext=None):
-        exclude_ext = ['.' + ext for ext in exclude_ext or []]
+        exclude_ext = exclude_ext or []
         self.file_names = []
 
         try:

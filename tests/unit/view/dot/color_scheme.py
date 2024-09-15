@@ -22,22 +22,22 @@ class ViewDotColorScheme:
     def color(self, name, ver):
         return getattr(self, f'color_{name}v{ver}')
 
-    def font_primary_color(self, ver):
+    def font_color_1(self, ver):
         return getattr(self, f'font_primary_color_{ver}')
 
-    def font_secondary_color(self, ver):
+    def font_color_2(self, ver):
         return getattr(self, f'font_secondary_color_{ver}')
 
     def node_background_color(self, ver):
         return getattr(self, f'node_color_{ver}')
 
-    def line_1_color(self, ver):
+    def color_1(self, ver):
         return getattr(self, f'line_1_color_{ver}')
 
-    def line_2_color(self, ver):
+    def color_2(self, ver):
         return getattr(self, f'line_2_color_{ver}')
 
-    def line_error_color(self, ver):
+    def error_color(self, ver):
         return getattr(self, f'line_error_color_{ver}')
 
     def parse_config(self, config, section):
