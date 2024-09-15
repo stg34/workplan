@@ -66,7 +66,7 @@ class ExecuteCommandError(Exception):
 
 
 def execute_git(git_binary_path, options, verbose=False):
-    command = git_binary_path + ' ' + options
+    command = f'"{git_binary_path}" {options}'
 
     res = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding="UTF8")
 
@@ -86,9 +86,10 @@ def execute_git(git_binary_path, options, verbose=False):
     return res.stdout.splitlines()
 
 
-def execute_dot(dot_binary_path, options, verbose=False):
-    command = dot_binary_path + ' ' + options
-    res = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding="UTF8")
+def execute_dot(dot_binary_path, options, input, verbose=False):
+    command = f'"{dot_binary_path}" {options}'
+
+    res = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding="UTF8", input=input)
 
     if verbose:
         print('Command:')

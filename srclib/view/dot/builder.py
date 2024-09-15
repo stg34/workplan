@@ -1,6 +1,5 @@
 # encoding: utf-8
 
-import tempfile
 import pathlib
 from srclib.utils import execute_dot
 from srclib.view.dot.node import ViewDotNode
@@ -17,7 +16,7 @@ class ViewDotBuilder:
         self.scheme = scheme
         self.dir = dir
         self.content = ''
-        self.dot_path = dot_binary_path
+        self.dot_binary_path = dot_binary_path
         self.verbose = verbose
 
     def build_edges(self, dot_nodes):
@@ -86,12 +85,8 @@ class ViewDotBuilder:
 
     def write(self, file_name):
         if self.verbose:
-            pathlib.Path(f'{file_name}.dot').write_text(self.content)
+            pathlib.Path(f'{file_name}.dot').write_text(self.content, encoding='utf-8')
 
-        with tempfile.NamedTemporaryFile('w+t') as tf:
-            tf.write(self.content)
-            tf.flush()
-
-            execute_dot(self.dot_path, f'-T png -o{file_name} {tf.name}', self.verbose)
+        execute_dot(self.dot_binary_path, f'-T png -o"{file_name}"', self.content, self.verbose)
 
         return file_name  # TODO: check errors
