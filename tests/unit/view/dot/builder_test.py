@@ -37,7 +37,7 @@ class ViewDotBuilderTest(BaseViewDotTestCase):
         self.assertFalse(task.graph.has_error)
 
         colorizer = Colorizer(configparser.ConfigParser())
-        builder = ViewDotBuilder(task, False, self.default_color_scheme, colorizer, 'tb', False)
+        builder = ViewDotBuilder(task, False, self.default_color_scheme, colorizer, 'tb', 'dot', False)
         builder.build()
 
         self.assertIn('Task title', builder.content)
