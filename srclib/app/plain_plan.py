@@ -18,7 +18,7 @@ class AppPlanPlain(AppBasePlain):
     def __init__(self, sys_args):
         arguments = PlainArguments(sys_args, '.plan.conf')
         prerequisites_checker = PrerequisitesChecker(arguments.out_dir, arguments.git_binary_path, None)
-        file_list = FileList(arguments.base_branch, arguments.verbose)
+        file_list = FileList(arguments.git_binary_path, arguments.base_branch, arguments.verbose)
         scanner = PlainScanner(arguments.todo_suffix)
 
         super().__init__(arguments, prerequisites_checker, file_list, scanner)
@@ -46,7 +46,7 @@ class AppPlanPlain(AppBasePlain):
         if self.args.title:
             return self.args.title
 
-        return branch_name()
+        return branch_name(self.args.git_binary_path, self.args.verbose)
 
     def build_main_comment(self, ordered_comments):
         src_comment = {

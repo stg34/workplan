@@ -2,7 +2,7 @@
 
 import tempfile
 import pathlib
-from srclib.utils import execute_command
+from srclib.utils import execute_dot
 from srclib.view.dot.node import ViewDotNode
 from srclib.view.dot.main_node import ViewDotMainNode
 from srclib.view.dot.title import ViewDotTitle
@@ -10,13 +10,14 @@ from srclib.view.dot.edge import ViewDotEdge
 
 
 class ViewDotBuilder:
-    def __init__(self, task, reverse, scheme, dir, verbose):
+    def __init__(self, task, reverse, scheme, dir, dot_binary_path, verbose):
         self.task = task
         self.comments_graph = task.graph
         self.reverse = reverse
         self.scheme = scheme
         self.dir = dir
         self.content = ''
+        self.dot_path = dot_binary_path
         self.verbose = verbose
 
     def build_edges(self, dot_nodes):
@@ -91,6 +92,6 @@ class ViewDotBuilder:
             tf.write(self.content)
             tf.flush()
 
-            execute_command(f'dot -T png -o{file_name} {tf.name}', self.verbose)
+            execute_dot(self.dot_path, f'-T png -o{file_name} {tf.name}', self.verbose)
 
         return file_name  # TODO: check errors

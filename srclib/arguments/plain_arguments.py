@@ -1,6 +1,5 @@
 # encoding: utf-8
 
-# from srclib.utils import branch_name
 from srclib.arguments.plan_arguments import PlanArguments
 
 

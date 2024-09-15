@@ -65,27 +65,49 @@ class ExecuteCommandError(Exception):
         self.ret = ret
 
 
-def execute_command(command, verbose=False, skip_error=False):
+def execute_git(git_binary_path, options, verbose=False):
+    command = git_binary_path + ' ' + options
+
     res = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding="UTF8")
 
     if verbose:
         print('Command:')
         print(command)
-        print('Retcode:')
+        print('Return code:')
         print(res.returncode)
         print('Stdout:')
         print(res.stdout)
         print('Stderr:')
         print(res.stderr)
 
-    if not skip_error and res.returncode != 0:
+    if res.stderr:
         raise ExecuteCommandError(command, res.stdout, res.stderr, res.returncode)
 
     return res.stdout.splitlines()
 
 
-def branch_name():
-    return ''.join(execute_command('git rev-parse --abbrev-ref HEAD'))
+def execute_dot(dot_binary_path, options, verbose=False):
+    command = dot_binary_path + ' ' + options
+    res = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding="UTF8")
+
+    if verbose:
+        print('Command:')
+        print(command)
+        print('Return code:')
+        print(res.returncode)
+        print('Stdout:')
+        print(res.stdout)
+        print('Stderr:')
+        print(res.stderr)
+
+    if res.returncode != 0:
+        raise ExecuteCommandError(command, res.stdout, res.stderr, res.returncode)
+
+    return res.stdout.splitlines()
+
+
+def branch_name(git_binary_path, verbose):
+    return ''.join(execute_git(git_binary_path, 'rev-parse --abbrev-ref HEAD', verbose))
 
 
 def format_num(time):
