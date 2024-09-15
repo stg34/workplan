@@ -9,7 +9,7 @@ class BaseArguments():
         self.sys_args = sys_args
         self.config_name = config_name
         self.config = configparser.ConfigParser()
-        self.config.read(config_name)
+        self.config.read(config_name, encoding='utf-8')
         self.parser = ArgumentParser()
         self.parse()
 

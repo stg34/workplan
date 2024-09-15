@@ -34,7 +34,7 @@ class ViewDotBuilderTest(BaseViewDotTestCase):
         task.built_at = datetime.datetime(2020, 5, 17, 11, 22, 33)
         self.assertFalse(task.graph.has_error)
 
-        builder = ViewDotBuilder(task, False, self.default_color_scheme, 'tb', False)
+        builder = ViewDotBuilder(task, False, self.default_color_scheme, 'tb', 'dot', False)
         builder.build()
 
         self.assertIn('Task title', builder.content)

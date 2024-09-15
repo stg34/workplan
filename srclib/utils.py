@@ -65,8 +65,8 @@ class ExecuteCommandError(Exception):
         self.ret = ret
 
 
-def execute_command(command, verbose=False, skip_error=False):
-    res = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding="UTF8")
+def execute_command(command, verbose=False, skip_error=False, input=None):
+    res = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding="UTF8", input=input)
 
     if verbose:
         print('Command:')

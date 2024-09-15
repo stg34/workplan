@@ -49,6 +49,7 @@ class AppPlanGraph(AppBasePlain):
                                           self.args.reverse,
                                           self.args.dot_color_scheme,
                                           self.args.graph_dir,
+                                          self.args.dot_binary_path,
                                           self.args.verbose)
 
         self.dot_builder.build()
