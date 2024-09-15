@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 import pathlib
-from srclib.utils import execute_command
+from srclib.utils import execute_dot
 from srclib.view.dot.node import ViewDotNode
 from srclib.view.dot.main_node import ViewDotMainNode
 from srclib.view.dot.title import ViewDotTitle
@@ -87,6 +87,6 @@ class ViewDotBuilder:
         if self.verbose:
             pathlib.Path(f'{file_name}.dot').write_text(self.content, encoding='utf-8')
 
-        execute_command(f'"{self.dot_binary_path}" -T png -o"{file_name}"', self.verbose, input=self.content)
+        execute_dot(self.dot_binary_path, f'-T png -o"{file_name}"', self.content, self.verbose)
 
         return file_name  # TODO: check errors
