@@ -75,6 +75,7 @@ class ViewDotBuilder:
         self.content += f'dpi={self.scheme.dpi}\n'
         self.content += f'rankdir="{self.rankdir}"\n'
         self.content += 'pad="0.5,0.5"\n'
+        self.content += 'ordering="out"\n'
         self.content += 'labelloc="t"\n'
         self.content += f'edge [dir="{self.edge_dir}" fontname="{self.scheme.font_name}"]\n'
         self.content += f'node [shape="plain" nojustify=true fontname="{self.scheme.font_name}"]\n'
