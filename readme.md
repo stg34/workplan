@@ -96,7 +96,7 @@ __plan-graph__ позволяет строить не только докуме�
 ## Установка
 
 ```
-git clone https://github.com/stg34/wp.git
+git clone https://github.com/stg34/workplan.git          
 ```
 
 ### Зависимости
