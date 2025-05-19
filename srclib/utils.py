@@ -127,7 +127,8 @@ def rgb_to_hex(rgb):
 
 
 def setup_i18n(localedir, domain):
-    localedir = f'{pathlib.Path(__file__).parent.resolve()}/{localedir}/locales'
-
-    t = gettext.translation(domain, localedir, fallback=True)
+    base_path = pathlib.Path(__file__).parent.resolve()
+    locale_path = base_path / localedir / 'locales'
+    
+    t = gettext.translation(domain, str(locale_path), fallback=True)
     return t.gettext
