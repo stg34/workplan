@@ -3,6 +3,9 @@
 import subprocess
 import pathlib
 import gettext
+import os
+import locale
+import platform
 
 
 class Color:
@@ -127,7 +130,16 @@ def rgb_to_hex(rgb):
 
 
 def setup_i18n(localedir, domain):
-    localedir = f'{pathlib.Path(__file__).parent.resolve()}/{localedir}/locales'
+    base_path = pathlib.Path(__file__).parent.resolve()
+    locale_path = base_path / localedir / 'locales'
 
-    t = gettext.translation(domain, localedir, fallback=True)
+    if platform.system() == 'Windows':
+        try:
+            system_locale, encoding = locale.getdefaultlocale()
+            if system_locale:
+                os.environ['LANG'] = system_locale
+        except Exception:
+            pass
+
+    t = gettext.translation(domain, str(locale_path), fallback=True)
     return t.gettext
