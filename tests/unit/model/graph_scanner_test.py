@@ -7,7 +7,7 @@ from srclib.model.graph_scanner import GraphScanner
 
 class GraphScannerTest(BaseTestCase):
     def test_scan_files(self):
-        scanner = GraphScanner('PL')
+        scanner = GraphScanner('PL', encoding='utf-8')
         scanner.scan_files(['tests/data/data_01.txt', 'tests/data/plan.png', 'notfound.txt'])
 
         self.assertEqual(len(scanner.src_comments), 3)

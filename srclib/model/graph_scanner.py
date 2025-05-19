@@ -5,11 +5,12 @@ from pathlib import Path
 
 
 class GraphScanner:
-    def __init__(self, todo_suffix):
+    def __init__(self, todo_suffix, encoding='utf-8'):
         self.src_comments = []
         self.todo_suffix = todo_suffix
         self.files_with_errors = []
         self.line_re = re.compile(r'\W*(ID:|DEP:|COMPL:|TIME:|DEV:|BLOCKER:)')
+        self.encoding = encoding
 
     @property
     def has_errors(self):
@@ -63,7 +64,7 @@ class GraphScanner:
         line_num = 0
 
         try:
-            with Path(file_name).open(encoding='utf8') as file:
+            with Path(file_name).open(encoding=self.encoding) as file:
                 for line in file:
                     line_num += 1
 

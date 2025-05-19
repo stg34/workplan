@@ -19,7 +19,7 @@ class AppPlanPlain(AppBasePlain):
         arguments = PlainArguments(sys_args, '.plan.conf')
         prerequisites_checker = PrerequisitesChecker(arguments.out_dir, arguments.git_binary_path, None)
         file_list = FileList(arguments.git_binary_path, arguments.base_branch, arguments.verbose)
-        scanner = PlainScanner(arguments.todo_suffix)
+        scanner = PlainScanner(arguments.todo_suffix, arguments.encoding)
 
         super().__init__(arguments, prerequisites_checker, file_list, scanner)
         self.task = Task(arguments.work_hours)
@@ -73,7 +73,7 @@ class AppPlanPlain(AppBasePlain):
         view.print_errors()
 
     def build_markdown(self):
-        self.markdown = ViewMarkdownBuilder(self.task, self.args.work_hours, self.args.h_start_level)
+        self.markdown = ViewMarkdownBuilder(self.task, self.args.work_hours, self.args.h_start_level, self.args.encoding)
         self.markdown.build()
         out_markdown_file = self.markdown.write(self.args.out_md_path)
         self.result['out_markdown_file'] = out_markdown_file
