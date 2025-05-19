@@ -19,7 +19,7 @@ class AppPlanGraph(AppBasePlain):
         arguments = GraphArguments(sys_args, '.plan.conf')
         prerequisites_checker = PrerequisitesChecker(arguments.out_dir, arguments.git_binary_path, arguments.dot_binary_path)
         file_list = FileList(arguments.git_binary_path, arguments.base_branch, arguments.verbose)
-        scanner = GraphScanner(arguments.todo_suffix)
+        scanner = GraphScanner(arguments.todo_suffix, arguments.encoding)
         self.result = {
             'out_graph_file': None,
             'out_markdown_file': None
@@ -54,14 +54,15 @@ class AppPlanGraph(AppBasePlain):
                                           self.colorizer,
                                           self.args.graph_dir,
                                           self.args.dot_binary_path,
-                                          self.args.verbose)
-
+                                          self.args.verbose,
+                                          self.args.encoding)
+    
         self.dot_builder.build()
         out_graph_file = self.dot_builder.write(self.args.out_graph_path)
         self.result['out_graph_file'] = out_graph_file
-
+    
     def build_markdown(self):
-        self.markdown = ViewMarkdownBuilder(self.task, self.args.work_hours, self.args.h_start_level)
+        self.markdown = ViewMarkdownBuilder(self.task, self.args.work_hours, self.args.h_start_level, self.args.encoding)
         self.markdown.build()
         out_markdown_file = self.markdown.write(self.args.out_md_path)
         self.result['out_markdown_file'] = out_markdown_file

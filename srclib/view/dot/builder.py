@@ -9,7 +9,7 @@ from srclib.view.dot.edge import ViewDotEdge
 
 
 class ViewDotBuilder:
-    def __init__(self, task, reverse, scheme, colorizer, dir, dot_binary_path, verbose):
+    def __init__(self, task, reverse, scheme, colorizer, dir, dot_binary_path, verbose, encoding='utf-8'):
         self.task = task
         self.comments_graph = task.graph
         self.reverse = reverse
@@ -19,6 +19,7 @@ class ViewDotBuilder:
         self.content = ''
         self.dot_binary_path = dot_binary_path
         self.verbose = verbose
+        self.encoding = encoding
 
     def build_edges(self, dot_nodes):
         for id in dot_nodes:
@@ -87,7 +88,7 @@ class ViewDotBuilder:
 
     def write(self, file_name):
         if self.verbose:
-            pathlib.Path(f'{file_name}.dot').write_text(self.content, encoding='utf-8')
+            pathlib.Path(f'{file_name}.dot').write_text(self.content, encoding=self.encoding)
 
         execute_dot(self.dot_binary_path, f'-T png -o"{file_name}"', self.content, self.verbose)
 

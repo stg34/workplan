@@ -9,12 +9,13 @@ from srclib.presenter.comment_presenter import GraphCommentPresenter
 # https://github.github.com/gfm/#what-is-github-flavored-markdown-
 
 class ViewMarkdownBuilder:
-    def __init__(self, task, work_hours, h_start_level, debug=False):
+    def __init__(self, task, work_hours, h_start_level, encoding='utf-8', debug=False):
         self.work_hours = work_hours
         self.h_start_level = h_start_level
         self.comments_graph = task.graph
         self.debug = debug
         self.content = ''
+        self.encoding = encoding
         self.task_presenter = TaskPresenter(task)
         self.graph_presenter = GraphPresenter(task.graph)
 
@@ -82,6 +83,6 @@ class ViewMarkdownBuilder:
         self.content += '\n'
 
     def write(self, file_name):
-        pathlib.Path(file_name).write_text(self.content)
+        pathlib.Path(file_name).write_text(self.content, encoding=self.encoding)
 
         return file_name  # TODO: check write file errors
