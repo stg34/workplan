@@ -5,15 +5,12 @@ from srclib.model.prerequisites_checker import PrerequisitesChecker
 from srclib.model.file_list import FileList
 from srclib.model.graph_scanner import GraphScanner
 from srclib.view.console.purgen import ViewConsolePurgen
+from srclib.app.base_plan import AppBasePlain
+from srclib.app.base_plan import PlanException
 from collections import defaultdict
 from srclib.utils import execute_git
 from pathlib import Path
-from srclib.app.base_plan import AppBasePlain
 from tempfile import NamedTemporaryFile
-
-
-class PlanException(Exception):
-    ...
 
 
 class AppPurgen(AppBasePlain):
@@ -65,34 +62,41 @@ class AppPurgen(AppBasePlain):
         return new_lines
 
     def purge(self):
-        self.list_files()
-        self.scan_files()
+        try:
+            self.list_files()
+            self.scan_files()
 
-        patch = []
-        comment_lines_by_file = defaultdict(list)
+            patch = []
+            comment_lines_by_file = defaultdict(list)
 
-        for src_comment in self.scanner.src_comments:
-            comment_lines_by_file[src_comment['file_name']].append([src['num'] for src in src_comment['src']])
+            for src_comment in self.scanner.src_comments:
+                comment_lines_by_file[src_comment['file_name']].append([src['num'] for src in src_comment['src']])
 
-        for file_name in comment_lines_by_file:
-            lines_to_delete = comment_lines_by_file[file_name]
-            lines = self.remove_comments(list(Path(file_name).open()), lines_to_delete)
-            content = ''.join(lines)
+            for file_name in comment_lines_by_file:
+                lines_to_delete = comment_lines_by_file[file_name]
+                lines = self.remove_comments(list(Path(file_name).open()), lines_to_delete)
+                content = ''.join(lines)
 
-            with NamedTemporaryFile('w+t') as tf:
-                tf.write(content)
-                tf.flush()
+                with NamedTemporaryFile('w+t') as tf:
+                    tf.write(content)
+                    tf.flush()
 
-                patch += execute_git(self.args.git_binary_path, f'-c core.quotepath=false diff --no-index "{tf.name}" "{file_name}"', self.args.verbose)
+                    patch += execute_git(self.args.git_binary_path, f'-c core.quotepath=false diff --no-index "{tf.name}" "{file_name}"', self.args.verbose)
 
-            self.write_file(file_name, content)
+                self.write_file(file_name, content)
 
-            patch = [line.replace(f'--- a{tf.name}', f'--- a/{file_name}') for line in patch]
+                patch = [line.replace(f'--- a{tf.name}', f'--- a/{file_name}') for line in patch]
 
-        Path(self.args.out_patch_path).write_text('\n'.join(patch))
-        self.result['out_patch_file'] = self.args.out_patch_path
+            Path(self.args.out_patch_path).write_text('\n'.join(patch))
+            self.result['out_patch_file'] = self.args.out_patch_path
 
-        self.view.print_summary()
+            self.view.print_summary()
+
+        except PlanException:
+            return AppPurgen.FAIL
+
+        finally:
+            self.view.print_summary()
 
     def write_file(self, file_name, content):
         if not self.args.dry_run:

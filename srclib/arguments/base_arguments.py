@@ -101,6 +101,18 @@ class BaseArguments():
                     }
                 }
             },
+            'encoding': {
+                'config': {
+                    'method': 'get',
+                    'params': {'fallback': 'utf-8'}
+                },
+                'args': {
+                    'names': ['-e', '--encoding'],
+                    'other': {
+                        'help': 'File encoding (default: utf-8)'
+                    }
+                }
+            },
         }
 
     def parse(self):
