@@ -77,7 +77,7 @@ class AppPurgen(AppBasePlain):
                 lines = self.remove_comments(list(Path(file_name).open()), lines_to_delete)
                 content = ''.join(lines)
 
-                with NamedTemporaryFile('w+t') as tf:
+                with NamedTemporaryFile('w+t', delete=False) as tf:
                     tf.write(content)
                     tf.flush()
 
@@ -86,6 +86,8 @@ class AppPurgen(AppBasePlain):
                 self.write_file(file_name, content)
 
                 patch = [line.replace(f'--- a{tf.name}', f'--- a/{file_name}') for line in patch]
+
+                Path(tf.name).unlink()
 
             Path(self.args.out_patch_path).write_text('\n'.join(patch))
             self.result['out_patch_file'] = self.args.out_patch_path
