@@ -58,18 +58,6 @@ class PlanArguments(BaseArguments):
                         'help': 'Level of the first header in the document. 1: <H1>...</H1>, 2: <H2>...</H2>, ...'
                     }
                 }
-            },
-            'encoding': {
-                'config': {
-                    'method': 'get',
-                    'params': {'fallback': 'utf-8'}
-                },
-                'args': {
-                    'names': ['-e', '--encoding'],
-                    'other': {
-                        'help': 'File encoding (default: utf-8)'
-                    }
-                }
             }
         }
 
