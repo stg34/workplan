@@ -18,7 +18,8 @@ class AppPurgen(AppBasePlain):
         arguments = PurgenArguments(sys_args, '.plan.conf')
         prerequisites_checker = PrerequisitesChecker(arguments.out_dir, arguments.git_binary_path, None)
         file_list = FileList(arguments.git_binary_path, arguments.base_branch, arguments.verbose)
-        scanner = GraphScanner(arguments.todo_suffix)
+        scanner = GraphScanner(arguments.todo_suffix, arguments.encoding)
+        self.encoding = arguments.encoding
         super().__init__(arguments, prerequisites_checker, file_list, scanner)
         self.result = {
             'out_patch_file': None,
@@ -74,10 +75,10 @@ class AppPurgen(AppBasePlain):
 
             for file_name in comment_lines_by_file:
                 lines_to_delete = comment_lines_by_file[file_name]
-                lines = self.remove_comments(list(Path(file_name).open()), lines_to_delete)
+                lines = self.remove_comments(list(Path(file_name).open(encoding=self.encoding)), lines_to_delete)
                 content = ''.join(lines)
 
-                with NamedTemporaryFile('w+t', delete=False) as tf:
+                with NamedTemporaryFile('w+t', delete=False, encoding=self.encoding) as tf:
                     tf.write(content)
                     tf.flush()
 
