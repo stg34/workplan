@@ -1,9 +1,8 @@
 # pip install -r requirements-dev.txt
 
-setuptools
+flake8
 flake8-adjustable-complexity
 flake8-comprehensions
-flake8-use-pathlib
 flake8-coding
 coverage
 
