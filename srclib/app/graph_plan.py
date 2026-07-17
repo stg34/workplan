@@ -56,11 +56,11 @@ class AppPlanGraph(AppBasePlain):
                                           self.args.dot_binary_path,
                                           self.args.verbose,
                                           self.args.encoding)
-    
+
         self.dot_builder.build()
         out_graph_file = self.dot_builder.write(self.args.out_graph_path)
         self.result['out_graph_file'] = out_graph_file
-    
+
     def build_markdown(self):
         self.markdown = ViewMarkdownBuilder(self.task, self.args.work_hours, self.args.h_start_level, self.args.encoding)
         self.markdown.build()

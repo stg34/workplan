@@ -14,6 +14,7 @@ class AppPlanGraphTest(BaseTestCase):
         Path('tmp/test').mkdir(parents=True, exist_ok=True)
 
     # @unittest.skip('coverage')
+    @unittest.skipUnless(shutil.which('dot'), 'graphviz is not installed')
     def test_build(self):
         with self.captured_output() as (out, err):
             plan = AppPlanGraph(['-bmaster', '--src=tests/manual/test01.txt', '--out-dir=tmp/test'])

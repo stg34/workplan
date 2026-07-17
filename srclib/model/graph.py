@@ -174,7 +174,7 @@ class Graph:
 
             for i in range(len(loop)):
                 self.nodes_in_loop.add(loop[i])
-                self.edges_in_loop.add(f'{loop[i]}->{loop[(i+1)%len(loop)]}')
+                self.edges_in_loop.add(f'{loop[i]}->{loop[(i + 1) % len(loop)]}')
 
             return
 

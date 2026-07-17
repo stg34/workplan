@@ -129,17 +129,36 @@ def rgb_to_hex(rgb):
     return f'#{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}'
 
 
+LANGUAGE_ENV_VARS = ('LANGUAGE', 'LC_ALL', 'LC_MESSAGES', 'LANG')
+
+
+def windows_language():
+    """The OS language as an 'xx_XX' code, or None if it cannot be determined.
+
+    locale.getlocale() is no substitute here: on Windows it reports names like
+    'Russian_Russia', which gettext cannot match against the 'ru' catalog.
+    """
+    import ctypes
+
+    try:
+        lcid = ctypes.windll.kernel32.GetUserDefaultLCID()
+    except (AttributeError, OSError):
+        return None
+
+    return locale.windows_locale.get(lcid)
+
+
 def setup_i18n(localedir, domain):
     base_path = pathlib.Path(__file__).parent.resolve()
     locale_path = base_path / localedir / 'locales'
 
-    if platform.system() == 'Windows':
-        try:
-            system_locale, encoding = locale.getdefaultlocale()
-            if system_locale:
-                os.environ['LANG'] = system_locale
-        except Exception:
-            pass
+    languages = None
 
-    t = gettext.translation(domain, str(locale_path), fallback=True)
+    # Windows defines none of the variables gettext reads, so fall back to asking the OS.
+    if platform.system() == 'Windows' and not any(os.environ.get(var) for var in LANGUAGE_ENV_VARS):
+        language = windows_language()
+        if language:
+            languages = [language]
+
+    t = gettext.translation(domain, str(locale_path), languages=languages, fallback=True)
     return t.gettext
