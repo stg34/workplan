@@ -21,10 +21,12 @@ class FileList():
         exclude_ext = exclude_ext or []
         self.file_names = []
 
+        no_quotepath = "-c core.quotepath=false"
+
         try:
-            self.file_names += execute_git(self.git_path, "-c core.quotepath=false ls-files --modified", self.verbose)
-            self.file_names += execute_git(self.git_path, "-c core.quotepath=false ls-files --others --exclude-standard", self.verbose)
-            self.file_names += execute_git(self.git_path, f"-c core.quotepath=false diff --name-only --diff-filter=d --merge-base {self.base_branch}", self.verbose)
+            self.file_names += execute_git(self.git_path, f"{no_quotepath} ls-files --modified", self.verbose)
+            self.file_names += execute_git(self.git_path, f"{no_quotepath} ls-files --others --exclude-standard", self.verbose)
+            self.file_names += execute_git(self.git_path, f"{no_quotepath} diff --name-only --diff-filter=d --merge-base {self.base_branch}", self.verbose)
         except ExecuteCommandError as error:
             self.errors.append(error)
 
